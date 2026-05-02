@@ -1,0 +1,60 @@
+name: PHPCS Check
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, main ]
+
+jobs:
+  phpcs:
+    name: Run PHPCS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer, cs2pr, phpcs, phpcbf
+          coverage: none
+
+      - name: Enable composer plugins
+        run: composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
+      - name: Install WPCS & dependencies
+        run: |
+          composer global require --no-interaction --prefer-dist wp-coding-standards/wpcs
+          composer global require squizlabs/php_codesniffer
+          composer global require dealerdirect/phpcodesniffer-composer-installer
+          echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
+
+      - name: Verify standards
+        run: phpcs -i
+
+      - name: Run PHPCBF
+        run: |
+          phpcbf . \
+            --standard=WordPress \
+            --extensions=php \
+            --ignore=*/node_modules/*,*/vendor/*,*/lib/*,*/options/node_modules/*,*/options/vendor/*,*/tests/*,*/languages/*,*.js,*.css,*.min.js,*.min.css
+        continue-on-error: true
+
+      - name: Show PHPCBF changes
+        if: success() || failure()
+        run: |
+          if ! git diff --quiet; then
+            echo '### 🔧 PHPCBF Fixes Applied' >> $GITHUB_STEP_SUMMARY
+            echo '```diff' >> $GITHUB_STEP_SUMMARY
+            git diff >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo '✅ No changes by PHPCBF' >> $GITHUB_STEP_SUMMARY
+          fi
+      - name: Run PHPCS
+        run: |
+          phpcs . --standard=WordPress --extensions=php --ignore=*/node_modules/*,*/vendor/*,*/lib/*,*/options/node_modules/*,*/options/vendor/*,*/tests/*,*/languages/*,*.js,*.css,*.min.js,*.min.css -n
+        continue-on-error: false

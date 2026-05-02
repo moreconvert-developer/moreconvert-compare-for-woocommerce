@@ -1,0 +1,25 @@
+<wpml-config>
+  <admin-texts>
+    <key name="moreconvert_compare_options">
+        <key name="texts">
+            <key name="add_to_compare_text"/>
+            <key name="select_product_text"/>
+            <key name="search_product_text"/>
+            <key name="no_products_text"/>
+            <key name="product_count_template_text"/>
+            <key name="no_more_products_text"/>
+            <key name="error_text"/>
+            <key name="add_to_cart_text"/>
+            <key name="specifications_text"/>
+            <key name="top_products_text"/>
+            <key name="stock_text"/>
+            <key name="reviews_text"/>
+            <key name="weight_text"/>
+            <key name="dimensions_text"/>
+            <key name="sku_text"/>
+            <key name="short_description_text"/>
+            <key name="reviews_format"/>
+        </key>
+    </key>
+  </admin-texts>
+</wpml-config>

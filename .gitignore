@@ -1,0 +1,7 @@
+/node_modules
+/packaged
+/options/node_modules
+/.idea
+package-lock.json
+/options/package-lock.json
+*~
