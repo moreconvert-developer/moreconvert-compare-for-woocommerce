@@ -24,7 +24,7 @@
     }
   },
   "scripts": {
-    "phpcs": "phpcs --standard=WordPress --extensions=php -n",
-    "phpcbf": "phpcbf --standard=WordPress --extensions=php"
+    "phpcs": "phpcs",
+    "phpcbf": "phpcbf"
   }
 }

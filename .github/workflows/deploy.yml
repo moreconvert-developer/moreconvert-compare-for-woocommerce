@@ -14,32 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.0'
-          tools: composer, wp-cli
-          coverage: none
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: 'npm'
-
-      - name: Install Composer dependencies (production only)
-        run: composer install --no-dev --prefer-dist --no-progress
-
-      - name: Install NPM dependencies and build assets
-        run: |
-          npm ci
-          npm run build
-
       - name: Deploy to WordPress.org SVN
         uses: 10up/actions-wordpress/plugin-deploy@stable
         env:
-          SVN_USERNAME: ${{ secrets.WPORG_USERNAME }}
-          SVN_PASSWORD: ${{ secrets.WPORG_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SLUG: moreconvert-compare-for-woocommerce
           BUILD_DIR: ./
           ASSETS_DIR: .wordpress-org

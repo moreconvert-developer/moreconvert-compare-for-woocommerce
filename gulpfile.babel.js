@@ -152,7 +152,7 @@ const phpFilesGlob = [
 export const phpcs = (done) => {
 	const standard = 'WordPress';
 	const ignore = 'lib/*,*/vendor/*,*/node_modules/*,options/class-demo.php';
-	const command = `phpcs --standard=${standard} --extensions=php  --ignore=${ignore} .`;
+	const command = `phpcs .`;
 	try {
 		execSync(command, { stdio: 'inherit' });
 		done();
@@ -165,7 +165,7 @@ export const phpcs = (done) => {
 export const phpcbf = (done) => {
 	const standard = 'WordPress';
 	const ignore = '*/vendor/*,*/node_modules/*,options/class-demo.php';
-	const command = `phpcbf --standard=${standard} --extensions=php --ignore=${ignore} .`;
+	const command = `phpcbf .`;
 	try {
 		execSync(command, { stdio: 'inherit' });
 		done();

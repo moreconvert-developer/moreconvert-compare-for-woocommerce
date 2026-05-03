@@ -5,6 +5,10 @@
     <!-- Use WordPress Coding Standards -->
     <rule ref="WordPress"/>
 
+    <!-- PHP Compatibility for versions 8.0-8.4 -->
+    <rule ref="PHPCompatibilityWP"/>
+    <config name="testVersion" value="8.0-8.4"/>
+
     <!-- Exclude external/vendor directories -->
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
@@ -14,12 +18,9 @@
     <exclude-pattern>*/tests/*</exclude-pattern>
     <exclude-pattern>*/languages/*</exclude-pattern>
 
-    <!-- Exclude minified files -->
-    <exclude-pattern>*.min.js</exclude-pattern>
-    <exclude-pattern>*.min.css</exclude-pattern>
-
-    <!-- Set PHP version compatibility -->
-    <config name="testVersion" value="8.0-"/>
+    <!-- Exclude css , js files -->
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>*.css</exclude-pattern>
 
     <!-- Treat warnings separately (optional) -->
     <config name="ignore_warnings_on_exit" value="1"/>
