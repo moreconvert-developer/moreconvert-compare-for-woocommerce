@@ -1,4 +1,11 @@
 <?php
+/**
+ * Compare Appsero Client
+ *
+ * @author MoreConvert
+ * @package MoreConvert Compare for WooCommerce
+ * @version 1.0.0
+ */
 
 namespace MoreConvert\McCompare\Appsero;
 
@@ -94,9 +101,9 @@ class Client {
 	/**
 	 * Initialize the class
 	 *
-	 * @param string $hash hash of the plugin
-	 * @param string $name readable name of the plugin
-	 * @param string $file main plugin file path
+	 * @param string $hash hash of the plugin.
+	 * @param string $name readable name of the plugin.
+	 * @param string $file main plugin file path.
 	 */
 	public function __construct( $hash, $name, $file ) {
 		$this->hash = $hash;
@@ -113,7 +120,7 @@ class Client {
 	 */
 	public function insights() {
 		if ( ! class_exists( __NAMESPACE__ . '\Insights' ) ) {
-			require_once __DIR__ . '/Insights.php';
+			require_once __DIR__ . '/class-insights.php';
 		}
 
 		// if already instantiated, return the cached one.
@@ -171,8 +178,9 @@ class Client {
 	/**
 	 * Send request to remote endpoint
 	 *
-	 * @param array  $params
-	 * @param string $route
+	 * @param array   $params params.
+	 * @param string  $route route.
+	 * @param boolean $blocking blocking.
 	 *
 	 * @return array|WP_Error array of results including HTTP headers or WP_Error if the request failed
 	 */
@@ -212,6 +220,8 @@ class Client {
 
 	/**
 	 * Translate function _e()
+	 *
+	 * @param string $text text.
 	 */
     // phpcs:ignore
     public function _etrans( $text ) {
@@ -220,6 +230,8 @@ class Client {
 
 	/**
 	 * Translate function __()
+	 *
+	 * @param string $text text.
 	 */
     // phpcs:ignore
     public function __trans( $text ) {
@@ -228,6 +240,8 @@ class Client {
 
 	/**
 	 * Set project textdomain
+	 *
+	 * @param string $textdomain textdomian.
 	 */
 	public function set_textdomain( $textdomain ) {
 		$this->textdomain = $textdomain;

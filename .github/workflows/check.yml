@@ -18,16 +18,17 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
+          php-version: '8.2'
           tools: composer, cs2pr, phpcs, phpcbf
           coverage: none
 
       - name: Enable composer plugins
         run: composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 
-      - name: Install WPCS & dependencies
+      - name: Install WPCS & PHPCompatibility & dependencies
         run: |
           composer global require --no-interaction --prefer-dist wp-coding-standards/wpcs
+          composer global require --no-interaction phpcompatibility/phpcompatibility-wp
           composer global require squizlabs/php_codesniffer
           composer global require dealerdirect/phpcodesniffer-composer-installer
           echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
@@ -37,10 +38,7 @@ jobs:
 
       - name: Run PHPCBF
         run: |
-          phpcbf . \
-            --standard=WordPress \
-            --extensions=php \
-            --ignore=*/node_modules/*,*/vendor/*,*/lib/*,*/options/node_modules/*,*/options/vendor/*,*/tests/*,*/languages/*,*.js,*.css,*.min.js,*.min.css
+          phpcbf .
         continue-on-error: true
 
       - name: Show PHPCBF changes
@@ -56,5 +54,5 @@ jobs:
           fi
       - name: Run PHPCS
         run: |
-          phpcs . --standard=WordPress --extensions=php --ignore=*/node_modules/*,*/vendor/*,*/lib/*,*/options/node_modules/*,*/options/vendor/*,*/tests/*,*/languages/*,*.js,*.css,*.min.js,*.min.css -n
+          phpcs .
         continue-on-error: false

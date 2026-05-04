@@ -1,0 +1,70 @@
+name: Build, Release & Deploy to WP.org
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release-and-deploy:
+    name: Build, Zip & Deploy
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP (with WP-CLI)
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: wp-cli
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install options dependencies
+        run: |
+          cd options
+          npm ci
+
+      - name: Build options framework (production)
+        run: |
+          cd options
+          npx gulp build --prod
+
+      - name: Build root plugin (production)
+        run: npx gulp build --prod
+
+      - name: Generate POT file
+        run: npx gulp pot
+
+      - name: Create release zip
+        run: npx gulp compress
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: packaged/*.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to WordPress.org SVN
+        uses: 10up/actions-wordpress/plugin-deploy@stable
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: moreconvert-compare-for-woocommerce
+          BUILD_DIR: ./
+          ASSETS_DIR: .wordpress-org
+          VERSION: ${{ github.ref_name }}

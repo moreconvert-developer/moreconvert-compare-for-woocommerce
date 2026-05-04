@@ -186,7 +186,7 @@ class Sanitizer {
 				break;
 			}
 			if ( ! is_array( $row ) ) {
-				$row_index++;
+				++$row_index;
 				continue;
 			}
 
@@ -200,7 +200,7 @@ class Sanitizer {
 			}
 
 			$sanitized_rows[] = $clean_row;
-			$row_index++;
+			++$row_index;
 		}
 
 		return $sanitized_rows;
@@ -282,10 +282,9 @@ class Sanitizer {
 			}
 
 			$sanitized_items[] = $clean_item;
-			$count++;
+			++$count;
 		}
 
 		return $sanitized_items;
 	}
-
 }

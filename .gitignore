@@ -1,6 +1,8 @@
 /node_modules
 /packaged
 /options/node_modules
+/assets/
+/options/assets/
 /.idea
 package-lock.json
 /options/package-lock.json
