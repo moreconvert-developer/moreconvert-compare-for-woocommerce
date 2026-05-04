@@ -1,4 +1,11 @@
 <?php
+/**
+ * Compare Appsero Insight
+ *
+ * @author MoreConvert
+ * @package MoreConvert Compare for WooCommerce
+ * @version 1.0.0
+ */
 
 namespace MoreConvert\McCompare\Appsero;
 
@@ -785,7 +792,7 @@ class Insights {
 	/**
 	 * Hook into action links and modify the deactivate link
 	 *
-	 * @param array $links
+	 * @param array $links links.
 	 *
 	 * @return array
 	 */
@@ -878,7 +885,7 @@ class Insights {
 		$this->client->send_request( $data, 'deactivate' );
 
 		/*
-		 * Fire after the plugin _uninstall_reason_submitted
+		 * Fire after the plugin _uninstall_reason_submitted.
 		 */
 		do_action( $this->client->slug . '_uninstall_reason_submitted', $data ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
@@ -976,9 +983,9 @@ class Insights {
 	/**
 	 * Run after theme deactivated
 	 *
-	 * @param string $new_name
-	 * @param object $new_theme
-	 * @param object $old_theme
+	 * @param string $new_name new name.
+	 * @param object $new_theme new theme.
+	 * @param object $old_theme old theme.
 	 *
 	 * @return void
 	 */
@@ -1328,6 +1335,5 @@ class Insights {
 		wp_register_script( $this->client->slug . '-appsero-deactivation', false, array( 'jquery' ), $this->client->project_version, true );
 		wp_enqueue_script( $this->client->slug . '-appsero-deactivation' );
 		wp_add_inline_script( $this->client->slug . '-appsero-deactivation', $custom_js );
-
 	}
 }

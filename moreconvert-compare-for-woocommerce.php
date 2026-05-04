@@ -136,7 +136,7 @@ add_action(
 function appsero_init_tracker() {
 
 	if ( ! class_exists( 'MoreConvert\McCompare\Appsero\Client' ) ) {
-		require_once MORECONVERT_COMPARE_DIR . 'lib/appsero/Client.php';
+		require_once MORECONVERT_COMPARE_DIR . 'lib/appsero/class-client.php';
 	}
 
 	$client = new Appsero\Client( '15538f29-1d1d-4aba-acf6-e3fd3c97a55b', 'MoreConvert Compare for WooCommerce Plugin', __FILE__ );

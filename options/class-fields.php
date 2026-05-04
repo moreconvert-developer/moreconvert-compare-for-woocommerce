@@ -1395,11 +1395,11 @@ if ( ! class_exists( 'Fields' ) ) {
 		 * Convert Html data attribute to string.
 		 *
 		 * @param array $data Data attributes.
-		 * @param bool  $echo Echo or not.
+		 * @param bool  $print_result Echo or not.
 		 *
 		 * @return string|void
 		 */
-		private function html_data_to_string( $data = array(), bool $echo = false ) {
+		private function html_data_to_string( $data = array(), bool $print_result = false ) {
 			$html_data = '';
 
 			if ( is_array( $data ) ) {
@@ -1412,7 +1412,7 @@ if ( ! class_exists( 'Fields' ) ) {
 				$html_data .= ' ';
 			}
 
-			if ( $echo ) {
+			if ( $print_result ) {
 				echo wp_kses_post( $html_data );
 			} else {
 				return $html_data;
