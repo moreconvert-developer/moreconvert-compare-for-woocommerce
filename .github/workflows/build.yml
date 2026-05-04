@@ -10,6 +10,9 @@ jobs:
     name: Build, Zip & Deploy
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,12 +21,12 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          tools: wp-cli     # ← WP-CLI به صورت خودکار نصب می‌شود
+          tools: wp-cli
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
 
       - name: Install root dependencies
