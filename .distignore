@@ -6,6 +6,7 @@
 .editorconfig
 .travis.yml
 .github/
+.idea/
 node_modules/
 src/
 packaged/
