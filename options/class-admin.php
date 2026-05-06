@@ -199,7 +199,7 @@ if ( ! class_exists( 'Admin' ) ) {
 
 				wp_localize_script(
 					'mct-admin',
-					'mct_admin_params',
+					'mctAdminParams',
 					array(
 						'plugin_id'                    => $this->config['plugin_id'],
 						'ajax_url'                     => admin_url( 'admin-ajax.php' ),
@@ -297,17 +297,16 @@ if ( ! class_exists( 'Admin' ) ) {
 							do_action( 'moreconvert_framework_panel_before_' . $this->options['id'] . '_update' );
 							foreach ( $options[ $section ] as $field_name ) {
 								$raw_value = isset( $_POST[ $field_name ] ) ? wp_unslash( $_POST[ $field_name ] ) : ''; // phpcs:ignore
-								$field_def  = Helpers::get_field_definition( $this->options['options'], $section, $field_name );
+								$field_def  = Helpers::get_field_definition( $this->options['options'], sanitize_key( $section ), sanitize_key( $field_name ) );
 								$field_type = $field_def['type'] ?? 'text';
 
-								$sanitized                  = Sanitizer::sanitize_field( $field_type, $raw_value, $field_def );
-								$new_options[ $field_name ] = $sanitized;
+								$new_options[ sanitize_key( $field_name ) ] = Sanitizer::sanitize_field( $field_type, $raw_value, $field_def );
 
 							}
 							$validate = apply_filters( 'moreconvert_framework_options_validate', true, $this->options['id'], $new_options );
 
 							if ( true === $validate ) {
-								$saved_options[ $section ] = $new_options;
+								$saved_options[ sanitize_key( $section ) ] = $new_options;
 								if ( apply_filters( 'moreconvert_framework_options_can_update', true, $this->options['id'], $new_options ) ) {
 									update_option( sanitize_key( $this->options['id'] ), $saved_options );
 									do_action( 'moreconvert_framework_panel_after_' . $this->options['id'] . '_update' );
@@ -351,11 +350,10 @@ if ( ! class_exists( 'Admin' ) ) {
 								foreach ( $all_fields as $field_name ) {
 
 									$raw_value = isset( $_POST[ $field_name ] ) ? wp_unslash( $_POST[ $field_name ] ) : ''; // phpcs:ignore
-									$field_def  = Helpers::get_field_definition( $this->options['options'], $section, $field_name );
+									$field_def  = Helpers::get_field_definition( $this->options['options'], sanitize_key( $section ), sanitize_key( $field_name ) );
 									$field_type = $field_def['type'] ?? 'text';
 
-									$sanitized                                = Sanitizer::sanitize_field( $field_type, $raw_value, $field_def );
-									$saved_options[ $section ][ $field_name ] = $sanitized;
+									$saved_options[ sanitize_key( $section ) ][ sanitize_key( $field_name ) ] = Sanitizer::sanitize_field( $field_type, $raw_value, $field_def );
 
 								}
 							}

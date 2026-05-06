@@ -77,9 +77,6 @@ add_action( 'moreconvert_compare_for_woocommerce_init', __NAMESPACE__ . '\\load'
  * @return void
  */
 function install() {
-	if ( ! function_exists( 'is_plugin_active' ) ) {
-		require_once ABSPATH . 'wp-admin/includes/plugin.php';
-	}
 
 	if ( function_exists( 'WC' ) ) {
 		require_once MORECONVERT_COMPARE_INC . 'functions.php';

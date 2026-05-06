@@ -91,7 +91,7 @@ if ( ! class_exists( 'Ajax_Handler' ) ) {
 						foreach ( $items as $field_name ) {
 
 							$raw_value = isset( $data[ $field_name ] ) ? wp_unslash( $data[ $field_name ] ) : '';
-							$field_def = Helpers::get_field_definition( $all_options_config['options'], $section, $field_name );
+							$field_def = Helpers::get_field_definition( $all_options_config['options'], sanitize_key( $section ), sanitize_key( $field_name ) );
 
 							$field_type = $field_def['type'] ?? 'text';
 
@@ -188,7 +188,7 @@ if ( ! class_exists( 'Ajax_Handler' ) ) {
 						foreach ( $items as $field_name ) {
 
 							$raw_value = isset( $data[ $field_name ] ) ? wp_unslash( $data[ $field_name ] ) : '';
-							$field_def = Helpers::get_field_definition( $all_options_config['options'], $section, $field_name );
+							$field_def = Helpers::get_field_definition( $all_options_config['options'], sanitize_key( $section ), sanitize_key( $field_name ) );
 
 							$field_type = $field_def['type'] ?? 'text';
 

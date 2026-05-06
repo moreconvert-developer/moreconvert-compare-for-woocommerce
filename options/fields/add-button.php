@@ -103,7 +103,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<td class="td-link" data-title="<?php esc_attr_e( 'Button link', 'moreconvert-compare-for-woocommerce' ); ?>">
 						<select class="btn-link-type"
 								name="<?php echo esc_attr( $name ); ?>[<?php echo esc_attr( $k ); ?>][link]"
-								onchange="mc_deps_link(this);">
+								onchange="mcDepsLink(this);">
 							<?php foreach ( $links as $key => $label ) : ?>
 								<option
 										value="<?php echo esc_attr( $key ); ?>" <?php selected( $key, $row['link'] ); ?>><?php echo esc_attr( $label ); ?></option>
@@ -154,7 +154,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<input class="" style="width:80px" name="<?php echo esc_attr( $name ); ?>[][border-radius]" type="text" autocomplete="off"/>
 				</td>
 				<td class="td-link" data-title="<?php esc_attr_e( 'Button link', 'moreconvert-compare-for-woocommerce' ); ?>">
-					<select class="" name="<?php echo esc_attr( $name ); ?>[][link]" onchange="mc_deps_link(this);">
+					<select class="" name="<?php echo esc_attr( $name ); ?>[][link]" onchange="mcDepsLink(this);">
 						<?php foreach ( $links as $key => $label ) : ?>
 							<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_attr( $label ); ?></option>
 						<?php endforeach; ?>
