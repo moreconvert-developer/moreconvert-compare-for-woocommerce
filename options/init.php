@@ -61,8 +61,5 @@ function init( $config ) {
 	// Initialize framework components.
 	new Ajax_Handler();
 
-	if ( class_exists( __NAMESPACE__ . '\\Demo' ) && defined( 'MORECONVERT_MCTOPTIONS_DEMO' ) && true === MORECONVERT_MCTOPTIONS_DEMO ) {
-		Demo::get_instance();
-	}
 	return true;
 }

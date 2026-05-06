@@ -72,7 +72,6 @@ const paths = {
 			'!options/gulpfile.babel.js',
 			'!options/package.json',
 			'!options/package-lock.json',
-			'!options/class-demo.php',
 		],
 		dest: 'packaged',
 	},
@@ -132,7 +131,7 @@ export const pot = () => {
 		'Last-Translator': 'MoreConvert',
 		'Language-Team': 'MoreConvert',
 	}).replace(/"/g, '\\"');
-	const command = `wp i18n make-pot . languages/${info.i18n}.pot --slug=${info.i18n} --include=**/*.php --exclude=lib/**,vendor/**,node_modules/**,options/node_modules/**,options/class-demo.php --package-name="${info.name}" --headers="${headers}"`;
+	const command = `wp i18n make-pot . languages/${info.i18n}.pot --slug=${info.i18n} --include=**/*.php --exclude=lib/**,vendor/**,node_modules/**,options/node_modules/** --package-name="${info.name}" --headers="${headers}"`;
 
 	return src('.').pipe(exec(command)).pipe(exec.reporter());
 };
