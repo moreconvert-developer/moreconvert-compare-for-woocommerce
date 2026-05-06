@@ -41,7 +41,7 @@ Learn more about how [Appsero collects and uses this data](https://appsero.com/p
 == External Services ==
 
 This plugin relies on the following third party/external services:
-* **Appsero**: This plugin uses the Appsero SDK to collect basic telemetry data upon user confirmation. This data helps us troubleshoot problems faster and make product improvements. It sends non-sensitive telemetry data (such as WordPress version, PHP version, and plugin settings) to `https://api.appsero.com`. [Privacy Policy](https://appsero.com/privacy-policy/) | [Terms of Service](https://appsero.com/terms-of-service/)
+* **Appsero**: This plugin uses the Appsero SDK to collect basic telemetry data upon user confirmation. This data helps us troubleshoot problems faster and make product improvements. It sends non-sensitive telemetry data (such as WordPress version, PHP version, and plugin settings) to `https://api.appsero.com`. [Privacy Policy](https://appsero.com/privacy-policy/)
 * **icanhazip.com**: As part of the Appsero SDK, the plugin may make a request to `https://icanhazip.com/` to determine the server's public IP address for analytical geolocation purposes. [Privacy Policy](https://www.cloudflare.com/privacypolicy/)
 
 == Installation ==

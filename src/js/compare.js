@@ -6,7 +6,7 @@
  * @package
  * @version 1.0.2
  */
-
+/* jshint esversion: 9 */
 /* global IntersectionObserver */
 // phpcs:disable
 (function ($, document) {

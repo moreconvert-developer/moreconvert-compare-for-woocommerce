@@ -20,4 +20,6 @@ options/gulpfile.babel.js
 options/package.json
 options/package-lock.json
 options/class-demo.php
+phpcs.xml.dist
+eslint.config.mjs
 *.zip

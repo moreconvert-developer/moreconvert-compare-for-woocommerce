@@ -49,6 +49,7 @@ const paths = {
 		src: [
 			'**/*',
 			'!.vscode',
+			'!.idea',
 			'!.github',
 			'!.wordpress-org',
 			'!node_modules{,/**}',
@@ -57,6 +58,8 @@ const paths = {
 			'!.babelrc',
 			'!.gitignore',
 			'!.distignore',
+			'!eslint.config.mjs',
+			'!phpcs.xml.dist',
 			'!gulpfile.babel.js',
 			'!package.json',
 			'!package-lock.json',
