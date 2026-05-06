@@ -593,8 +593,6 @@ class Insights {
 		update_option( $this->client->slug . '_allow_tracking', 'no' );
 		update_option( $this->client->slug . '_tracking_notice', 'hide' );
 
-		$this->send_tracking_skipped_request();
-
 		$this->clear_schedule_event();
 
 		do_action( $this->client->slug . '_tracker_optout' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
@@ -679,7 +677,7 @@ class Insights {
 	 */
 	private function get_all_plugins() {
 		if ( ! function_exists( 'get_plugins' ) ) {
-			include ABSPATH . '/wp-admin/includes/plugin.php';
+			include_once ABSPATH . '/wp-admin/includes/plugin.php';
 		}
 
 		$plugins             = get_plugins();
@@ -1031,26 +1029,6 @@ class Insights {
 		}
 
 		return $site_name;
-	}
-
-	/**
-	 * Send request to appsero if user skip to send tracking data
-	 */
-	private function send_tracking_skipped_request() {
-		$skipped = get_option( $this->client->slug . '_tracking_skipped' );
-
-		$data = array(
-			'hash'               => $this->client->hash,
-			'previously_skipped' => false,
-		);
-
-		if ( 'yes' === $skipped ) {
-			$data['previously_skipped'] = true;
-		} else {
-			update_option( $this->client->slug . '_tracking_skipped', 'yes' );
-		}
-
-		$this->client->send_request( $data, 'tracking-skipped' );
 	}
 
 	/**
