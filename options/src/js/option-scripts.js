@@ -255,12 +255,12 @@
 						tinyMCE.triggerSave(true, true);
 					}
 					$.ajax({
-						url: mctAdminParams.ajax_url,
+						url: moreconvertmctAdminParams.ajax_url,
 						type: 'POST',
 						dataType: 'json',
 						data: {
-							action: mctAdminParams.plugin_id + '_ajax_saving',
-							_wpnonce: mctAdminParams.ajax_nonce,
+							action: moreconvertmctAdminParams.plugin_id + '_ajax_saving',
+							_wpnonce: moreconvertmctAdminParams.ajax_nonce,
 							data: encodeURIComponent(currentForm.serialize()),
 						},
 						beforeSend() {
@@ -577,27 +577,27 @@
 						autoUpdateInput: false,
 						locale: {
 							applyLabel:
-								mctAdminParams.range_datepicker.applyLabel,
+								moreconvertmctAdminParams.range_datepicker.applyLabel,
 							cancelLabel:
-								mctAdminParams.range_datepicker.cancelLabel,
+								moreconvertmctAdminParams.range_datepicker.cancelLabel,
 							customRangeLabel:
-								mctAdminParams.range_datepicker
+								moreconvertmctAdminParams.range_datepicker
 									.customRangeLabel,
 						},
 						ranges: {
-							[mctAdminParams.range_datepicker.last_7_days]: [
+							[moreconvertmctAdminParams.range_datepicker.last_7_days]: [
 								moment().subtract(6, 'days'),
 								moment(),
 							],
-							[mctAdminParams.range_datepicker.last_30_days]: [
+							[moreconvertmctAdminParams.range_datepicker.last_30_days]: [
 								moment().subtract(29, 'days'),
 								moment(),
 							],
-							[mctAdminParams.range_datepicker.last_90_days]: [
+							[moreconvertmctAdminParams.range_datepicker.last_90_days]: [
 								moment().subtract(89, 'days'),
 								moment(),
 							],
-							[mctAdminParams.range_datepicker.last_365_days]: [
+							[moreconvertmctAdminParams.range_datepicker.last_365_days]: [
 								moment().subtract(364, 'days'),
 								moment(),
 							],
@@ -630,13 +630,13 @@
 						);
 					$(this).select2({
 						ajax: {
-							url: mctAdminParams.search_post_url,
+							url: moreconvertmctAdminParams.search_post_url,
 							dataType: 'json',
 							delay: 250,
 							beforeSend(xhr) {
 								xhr.setRequestHeader(
 									'X-WP-Nonce',
-									mctAdminParams.nonce
+									moreconvertmctAdminParams.nonce
 								);
 							},
 							data(params) {
@@ -667,13 +667,13 @@
 						);
 					$(this).select2({
 						ajax: {
-							url: mctAdminParams.search_user_url,
+							url: moreconvertmctAdminParams.search_user_url,
 							dataType: 'json',
 							delay: 250,
 							beforeSend(xhr) {
 								xhr.setRequestHeader(
 									'X-WP-Nonce',
-									mctAdminParams.nonce
+									moreconvertmctAdminParams.nonce
 								);
 							},
 							data(params) {
@@ -748,7 +748,7 @@
 		}
 
 		$('.mct-repeater.simple-repeater').repeater({
-			limitMessage: mctAdminParams.i18n_limit_repeater_alert,
+			limitMessage: moreconvertmctAdminParams.i18n_limit_repeater_alert,
 			show() {
 				$(this)
 					.find('.btn-translation')
@@ -779,7 +779,7 @@
 				initDatePicker();
 			},
 			hide(deleteElement) {
-				if (confirm(mctAdminParams.i18n_delete_repeater_confirm)) {
+				if (confirm(moreconvertmctAdminParams.i18n_delete_repeater_confirm)) {
 					$(this).slideUp(deleteElement);
 				}
 			},
@@ -787,7 +787,7 @@
 		});
 
 		$('.mct-repeater.nested-repeater').repeater({
-			limitMessage: mctAdminParams.i18n_limit_repeater_alert,
+			limitMessage: moreconvertmctAdminParams.i18n_limit_repeater_alert,
 			repeaters: [
 				{
 					// (Required)
@@ -892,7 +892,7 @@
 
 		// The "Remove" button (remove the value from input type='hidden').
 		$('.mct_remove_image_button').on('click', function () {
-			const answer = confirm(mctAdminParams.i18n_delete_image_confirm);
+			const answer = confirm(moreconvertmctAdminParams.i18n_delete_image_confirm);
 			if (answer === true) {
 				const src = $(this).parent().prev().attr('data-src');
 				$(this).parent().prev().attr('src', src);
@@ -955,7 +955,7 @@
 		});
 		// The "Remove" button (remove the value from input type='hidden').
 		$('.mct_remove_file_button').on('click', function () {
-			const answer = confirm(mctAdminParams.i18n_delete_file_confirm);
+			const answer = confirm(moreconvertmctAdminParams.i18n_delete_file_confirm);
 			if (answer === true) {
 				$(this).parent().find('input').val('');
 				$(this)
@@ -981,10 +981,10 @@
 			event.preventDefault();
 			const elem = $(this);
 			$.ajax({
-				url: mctAdminParams.ajax_url,
+				url: moreconvertmctAdminParams.ajax_url,
 				data: {
-					action: mctAdminParams.plugin_id + '_import_settings',
-					key: mctAdminParams.ajax_nonce,
+					action: moreconvertmctAdminParams.plugin_id + '_import_settings',
+					key: moreconvertmctAdminParams.ajax_nonce,
 					attachment_id: elem.parent().find('input').val(),
 					option_id: elem.closest('.upload-file').data('option_id'),
 				},
@@ -1016,10 +1016,10 @@
 			event.preventDefault();
 			const elem = $(this);
 			$.ajax({
-				url: mctAdminParams.ajax_url,
+				url: moreconvertmctAdminParams.ajax_url,
 				data: {
-					action: mctAdminParams.plugin_id + '_export_settings',
-					key: mctAdminParams.ajax_nonce,
+					action: moreconvertmctAdminParams.plugin_id + '_export_settings',
+					key: moreconvertmctAdminParams.ajax_nonce,
 					option_id: elem.data('option_id'),
 				},
 				method: 'post',
@@ -1221,7 +1221,7 @@
 
 		// Reset form.
 		$('body').on('click', '.mct-reset-btn', function () {
-			if (!confirm(mctAdminParams.i18n_reset_confirm)) {
+			if (!confirm(moreconvertmctAdminParams.i18n_reset_confirm)) {
 				return false;
 			}
 		});

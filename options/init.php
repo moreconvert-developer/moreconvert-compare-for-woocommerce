@@ -15,19 +15,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Define framework version.
 const VERSION = '1.0.0';
 // Define base path and URL for the framework within the plugin.
-if ( ! defined( __NAMESPACE__ . '\PATH' ) ) {
-	define( __NAMESPACE__ . '\PATH', __DIR__ );
+if ( ! defined( 'MORECONVERT_COMPARE_OPTIONS_PATH' ) ) {
+	define( 'MORECONVERT_COMPARE_OPTIONS_PATH', __DIR__ );
 }
 
-if ( ! defined( __NAMESPACE__ . '\URL' ) ) {
-	define( __NAMESPACE__ . '\URL', untrailingslashit( plugins_url( '/', __FILE__ ) ) );
+if ( ! defined( 'MORECONVERT_COMPARE_OPTIONS_URL' ) ) {
+	define( 'MORECONVERT_COMPARE_OPTIONS_URL', untrailingslashit( plugins_url( '/', __FILE__ ) ) );
 }
 
 // Autoload framework classes.
 spl_autoload_register(
 	function ( $class_name ) {
 		$prefix   = 'MoreConvert\\McCompare\\MCTOptions\\';
-		$base_dir = PATH . '/';
+		$base_dir = MORECONVERT_COMPARE_OPTIONS_PATH . '/';
 		if ( strpos( $class_name, $prefix ) === 0 ) {
 			$relative_class = substr( $class_name, strlen( $prefix ) );
 			$file_name      = 'class-' . str_replace( array( '\\', '_' ), array( '/', '-' ), strtolower( $relative_class ) ) . '.php';
@@ -48,8 +48,8 @@ function init( $config ) {
 	// Merge with defaults.
 	$defaults = array(
 		'plugin_id'     => '',
-		'assets_url'    => URL . '/assets',
-		'template_path' => PATH,
+		'assets_url'    => MORECONVERT_COMPARE_OPTIONS_URL . '/assets',
+		'template_path' => MORECONVERT_COMPARE_OPTIONS_PATH,
 	);
 
 	$config = wp_parse_args( $config, $defaults );

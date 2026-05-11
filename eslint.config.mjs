@@ -25,8 +25,8 @@ export default [
 			globals: {
 				jQuery: 'readonly',
 				wp: 'readonly',
-				McCompare: 'readonly',
-				mctAdminParams: 'readonly',
+				moreconvertCompare: 'readonly',
+				moreconvertmctAdminParams: 'readonly',
 				moment: 'readonly',
 				tinyMCE: 'readonly',
 				_: 'readonly',

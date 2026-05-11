@@ -31,7 +31,7 @@
 		this.compareProducts = []; // Displayed products (sliced based on screen size).
 		this.isUpdating = false; // Flag to prevent recursive updates.
 		this.data = {
-			specifications: McCompare.texts.specifications,
+			specifications: moreconvertCompare.texts.specifications,
 		};
 		this.currentPage = 1;
 		this.totalProducts = 0;
@@ -77,12 +77,12 @@
 			return false;
 		}
 		if (
-			!McCompare ||
-			!McCompare.texts ||
-			!McCompare.ajax_url ||
-			!McCompare.ajax_nonce
+			!moreconvertCompare ||
+			!moreconvertCompare.texts ||
+			!moreconvertCompare.ajax_url ||
+			!moreconvertCompare.ajax_nonce
 		) {
-			log('McCompare global object is missing or incomplete.');
+			log('moreconvertCompare global object is missing or incomplete.');
 			return false;
 		}
 
@@ -98,11 +98,11 @@
 		$(document.body).append(this.comparePopupTemplate(this.data));
 		this.data = {
 			select_product:
-				McCompare.texts.select_product || 'Select a product',
+				moreconvertCompare.texts.select_product || 'Select a product',
 			search_products:
-				McCompare.texts.search_products || 'Search products',
-			moreconvert_compare_nonce: McCompare.ajax_nonce,
-			top_products: McCompare.texts.top_products || 'Top Products',
+				moreconvertCompare.texts.search_products || 'Search products',
+			moreconvert_compare_nonce: moreconvertCompare.ajax_nonce,
+			top_products: moreconvertCompare.texts.top_products || 'Top Products',
 		};
 		$(document.body).append(this.addProductPopupTemplate(this.data));
 
@@ -164,11 +164,11 @@
 					productData.loading_variations = false;
 					if (productData.has_variations) {
 						$.ajax({
-							url: McCompare.ajax_url,
+							url: moreconvertCompare.ajax_url,
 							type: 'POST',
 							data: {
 								action: 'moreconvert_compare_get_variations',
-								nonce: McCompare.ajax_nonce,
+								nonce: moreconvertCompare.ajax_nonce,
 								product_id: productData.id,
 							},
 							success(response) {
@@ -225,11 +225,11 @@
 					productData.loading_variations = false;
 					if (productData.has_variations) {
 						$.ajax({
-							url: McCompare.ajax_url,
+							url: moreconvertCompare.ajax_url,
 							type: 'POST',
 							data: {
 								action: 'moreconvert_compare_get_variations',
-								nonce: McCompare.ajax_nonce,
+								nonce: moreconvertCompare.ajax_nonce,
 								product_id: productData.id,
 							},
 							success(response) {
@@ -415,7 +415,7 @@
 	 * @return {number} Maximum number of products to display.
 	 */
 	CompareManager.prototype.getMaxDisplayed = function () {
-		return window.innerWidth < 993 ? 2 : McCompare.max_products || 4;
+		return window.innerWidth < 993 ? 2 : moreconvertCompare.max_products || 4;
 	};
 
 	/**
@@ -533,7 +533,7 @@
 		if (this.allCompareProducts.some((p) => p.id === productData.id)) {
 			return;
 		}
-		if (this.allCompareProducts.length >= (McCompare.max_products || 4)) {
+		if (this.allCompareProducts.length >= (moreconvertCompare.max_products || 4)) {
 			return;
 		}
 		this.allCompareProducts = [productData];
@@ -584,7 +584,7 @@
 			}
 			return;
 		}
-		if (this.allCompareProducts.length >= (McCompare.max_products || 4)) {
+		if (this.allCompareProducts.length >= (moreconvertCompare.max_products || 4)) {
 			return;
 		}
 		this.allCompareProducts.push(productData);
@@ -765,7 +765,7 @@
 			const data = {
 				product,
 				index,
-				add_to_cart_text: McCompare.texts.add_to_cart || 'Add to Cart',
+				add_to_cart_text: moreconvertCompare.texts.add_to_cart || 'Add to Cart',
 			};
 			$grid.append($cardTemplate(data));
 		});
@@ -833,7 +833,7 @@
 		);
 
 		if (
-			this.allCompareProducts.length < (McCompare.max_products || 4) &&
+			this.allCompareProducts.length < (moreconvertCompare.max_products || 4) &&
 			this.compareProducts.length < this.getMaxDisplayed()
 		) {
 			const $buttonTemplate = wp.template(
@@ -841,18 +841,18 @@
 			);
 			const data = {
 				select_product_text:
-					McCompare.texts.select_product || 'Select a product',
+					moreconvertCompare.texts.select_product || 'Select a product',
 			};
 			$grid.append($buttonTemplate(data));
 		}
 
 		if (
 			window.innerWidth > 992 &&
-			$grid.children().length < (McCompare.max_products || 4)
+			$grid.children().length < (moreconvertCompare.max_products || 4)
 		) {
 			for (
 				let i = $grid.children().length;
-				i < (McCompare.max_products || 4);
+				i < (moreconvertCompare.max_products || 4);
 				i++
 			) {
 				$grid.append(
@@ -913,11 +913,11 @@
 					if (
 						window.innerWidth > 992 &&
 						this.compareProducts.length <
-							(McCompare.max_products || 4)
+							(moreconvertCompare.max_products || 4)
 					) {
 						for (
 							let i = this.compareProducts.length;
-							i < (McCompare.max_products || 4);
+							i < (moreconvertCompare.max_products || 4);
 							i++
 						) {
 							data.empty_cells.push('');
@@ -977,17 +977,17 @@
 			action: isSearch
 				? 'moreconvert_compare_search_products'
 				: 'moreconvert_compare_get_suggested_products',
-			nonce: McCompare.ajax_nonce,
+			nonce: moreconvertCompare.ajax_nonce,
 			base_product_id: baseProductId,
 			paged: this.currentPage,
-			limit: McCompare.limit || 10,
+			limit: moreconvertCompare.limit || 10,
 		};
 		if (isSearch) {
 			ajaxData.search = this.currentQuery;
 		}
 
 		this.activeAjaxRequest = $.ajax({
-			url: McCompare.ajax_url,
+			url: moreconvertCompare.ajax_url,
 			type: 'POST',
 			data: ajaxData,
 			success: (function (_this) {
@@ -999,7 +999,7 @@
 						if (
 							_this.currentPage > 0 &&
 							response.data.products.length === 0 &&
-							_this.totalProducts < (McCompare.limit || 10)
+							_this.totalProducts < (moreconvertCompare.limit || 10)
 						) {
 							return;
 						}
@@ -1009,7 +1009,7 @@
 						) {
 							$('.moreconvert-compare-products-section').append(
 								'<div class="moreconvert-compare-message moreconvert-compare-no-more-products">' +
-									(McCompare.texts.no_more_products ||
+									(moreconvertCompare.texts.no_more_products ||
 										'No more products') +
 									'</div>'
 							);
@@ -1021,7 +1021,7 @@
 						) {
 							$('.moreconvert-compare-products-grid').html(
 								'<div class="moreconvert-compare-message moreconvert-compare-no-products">' +
-									(McCompare.texts.no_products ||
+									(moreconvertCompare.texts.no_products ||
 										'No products found') +
 									'</div>'
 							);
@@ -1063,7 +1063,7 @@
 										productJson: JSON.stringify(product),
 										product,
 										add_to_compare_text:
-											McCompare.texts.add_to_compare ||
+											moreconvertCompare.texts.add_to_compare ||
 											'Add to Compare',
 									};
 									$grid.append($itemTemplate(data));
@@ -1090,7 +1090,7 @@
 													const totalPages =
 														Math.ceil(
 															_this.totalProducts /
-																(McCompare.limit ||
+																(moreconvertCompare.limit ||
 																	10)
 														);
 													if (
@@ -1131,14 +1131,14 @@
 								.remove();
 							if (
 								_this.totalProducts >=
-									(McCompare.limit || 10) &&
+									(moreconvertCompare.limit || 10) &&
 								response.data.products.length === 0
 							) {
 								$(
 									'.moreconvert-compare-products-section'
 								).append(
 									'<div class="moreconvert-compare-message moreconvert-compare-no-more-products">' +
-										(McCompare.texts.no_more_products ||
+										(moreconvertCompare.texts.no_more_products ||
 											'No more products') +
 										'</div>'
 								);
@@ -1147,7 +1147,7 @@
 					} else {
 						$('.moreconvert-compare-products-grid').html(
 							'<div class="moreconvert-compare-message moreconvert-compare-no-products">' +
-								(McCompare.texts.no_products ||
+								(moreconvertCompare.texts.no_products ||
 									'No products found') +
 								'</div>'
 						);
@@ -1166,7 +1166,7 @@
 							.remove();
 						$('.moreconvert-compare-products-grid').html(
 							'<div class="moreconvert-compare-message moreconvert-compare-error">' +
-								(McCompare.texts.error || 'An error occurred') +
+								(moreconvertCompare.texts.error || 'An error occurred') +
 								'</div>'
 						);
 						_this.updateProductCount(0);
@@ -1205,7 +1205,7 @@
 	 */
 	CompareManager.prototype.updateProductCount = function (loaded) {
 		const text = (
-			McCompare.texts.product_count_template ||
+			moreconvertCompare.texts.product_count_template ||
 			'{loaded} of {totalProducts} products'
 		)
 			.replace('{loaded}', loaded)

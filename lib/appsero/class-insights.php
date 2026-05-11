@@ -403,7 +403,7 @@ class Insights {
 			$is_local = true;
 		}
 
-		return apply_filters( 'appsero_is_local', $is_local );// phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		return apply_filters( 'moreconvert_appsero_is_local', $is_local );// phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 	/**
@@ -920,7 +920,7 @@ class Insights {
 		);
 
 		$reasons        = $this->get_uninstall_reasons();
-		$custom_reasons = apply_filters( 'appsero_custom_deactivation_reasons', array(), $this->client ); // phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		$custom_reasons = apply_filters( 'moreconvert_appsero_custom_deactivation_reasons', array(), $this->client ); // phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		?>
 
 		<div class="wd-dr-modal" id="<?php echo esc_attr( $this->client->slug ); ?>-wd-dr-modal">

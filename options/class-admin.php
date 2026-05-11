@@ -199,7 +199,7 @@ if ( ! class_exists( 'Admin' ) ) {
 
 				wp_localize_script(
 					'mct-admin',
-					'mctAdminParams',
+					'moreconvertmctAdminParams',
 					array(
 						'plugin_id'                    => $this->config['plugin_id'],
 						'ajax_url'                     => admin_url( 'admin-ajax.php' ),

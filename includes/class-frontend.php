@@ -515,7 +515,7 @@ if ( ! class_exists( 'Frontend' ) ) {
 
 			wp_localize_script(
 				'moreconvert-compare',
-				'McCompare',
+				'moreconvertCompare',
 				array(
 					'ajax_url'     => admin_url( 'admin-ajax.php' ),
 					'ajax_nonce'   => wp_create_nonce( 'moreconvert_compare_nonce' ),
@@ -541,7 +541,7 @@ if ( ! class_exists( 'Frontend' ) ) {
 			} else {
 				$custom_css = $this->build_custom_css();
 				if ( $custom_css ) {
-					wp_add_inline_style( 'moreconvert-compare', wp_strip_all_tags( $custom_css ) );
+					wp_add_inline_style( 'moreconvert-compare', $custom_css );
 				}
 			}
 		}
@@ -748,8 +748,55 @@ if ( ! class_exists( 'Frontend' ) ) {
 			}
 			$generated_code  = apply_filters( 'moreconvert_compare_custom_css_output', $generated_code );
 			$generated_code .= $this->options->get_option( 'custom_css', true );
+			return $this->esc_stylesheet( $generated_code );
+		}
 
-			return wp_strip_all_tags( $generated_code );
+		/**
+		 * Escape arbitrary CSS for output inside a <style> element.
+		 *
+		 * This keeps modern CSS intact and does not parse, whitelist, or sanitize CSS.
+		 * It only prevents the CSS text from breaking out of the <style> raw-text context.
+		 *
+		 * @param mixed $css Raw CSS.
+		 * @return string CSS escaped for <style> context.
+		 */
+		public static function esc_stylesheet( $css ) {
+			$css = (string) $css;
+
+			if ( '' === $css ) {
+				return '';
+			}
+
+			/*
+			 * Match WordPress escaping behavior: validate UTF-8 at output time.
+			 * This is output escaping, not save-time sanitization.
+			 */
+			if ( function_exists( 'wp_check_invalid_utf8' ) ) {
+				$css = wp_check_invalid_utf8( $css );
+			}
+
+			/*
+			 * Remove null bytes because they are unsafe in HTML/CSS output contexts
+			 * and can create parser differences.
+			 */
+			$css = str_replace( "\0", '', $css );
+
+			/*
+			 * Critical part:
+			 *
+			 * <style> is a raw-text element. HTML entities such as &lt; are not decoded
+			 * as HTML inside it, so esc_html() is not the right escaping for CSS.
+			 *
+			 * The dangerous breakout is a literal "</style". Escaping every "<" as a
+			 * CSS escape prevents the HTML parser from seeing a closing style tag,
+			 * while browsers still interpret "\3C " as "<" in CSS strings/values.
+			 *
+			 * This preserves modern CSS features because it does not whitelist or parse
+			 * declarations, selectors, functions, at-rules, custom properties, etc.
+			 */
+			$css = str_replace( '<', '\\3C ', $css );
+
+			return $css;
 		}
 
 		/**

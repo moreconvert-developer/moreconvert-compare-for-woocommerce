@@ -139,7 +139,7 @@ class Client {
 	 * @return string
 	 */
 	public function endpoint() {
-		$endpoint = apply_filters( 'appsero_endpoint', 'https://api.appsero.com' );// phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		$endpoint = apply_filters( 'moreconvert_appsero_endpoint', 'https://api.appsero.com' );// phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 
 		return trailingslashit( $endpoint );
 	}
@@ -150,7 +150,11 @@ class Client {
 	 * @return void
 	 */
 	protected function set_basename_and_slug() {
-		if ( strpos( $this->file, WP_CONTENT_DIR . '/themes/' ) === false ) {
+		$theme_root = wp_normalize_path( get_theme_root() );
+		$file_path  = wp_normalize_path( $this->file );
+
+		if ( strpos( $file_path, $theme_root . '/' ) !== 0 ) {
+			// Plugin.
 			$this->basename = plugin_basename( $this->file );
 
 			list( $this->slug, $mainfile ) = explode( '/', $this->basename );
@@ -162,7 +166,8 @@ class Client {
 			$this->project_version = $plugin_data['Version'];
 			$this->type            = 'plugin';
 		} else {
-			$this->basename = str_replace( WP_CONTENT_DIR . '/themes/', '', $this->file );
+			// Theme.
+			$this->basename = str_replace( $theme_root . '/', '', $file_path );
 
 			list( $this->slug, $mainfile ) = explode( '/', $this->basename );
 
@@ -215,7 +220,7 @@ class Client {
 	public function is_local_server() {
 		$is_local = isset( $_SERVER['REMOTE_ADDR'] ) && in_array( $_SERVER['REMOTE_ADDR'], array( '127.0.0.1', '::1' ), true );
 
-		return apply_filters( 'appsero_is_local', $is_local ); // phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+		return apply_filters( 'moreconvert_appsero_is_local', $is_local ); // phpcs:ignore  WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 	/**
