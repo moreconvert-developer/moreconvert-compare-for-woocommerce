@@ -31,7 +31,7 @@ function moreconvert_compare_uninstall() {
          					WHERE option_name LIKE %s 
             				OR option_name LIKE %s",
 				'moreconvert_compare_%',
-				'moreconvert-compare-for-woocommerce%'
+				'moreconvert_appsero_moreconvert-compare%'
 			)
 		);
 		// Clear any cached data that has been removed.

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-11T20:45:10+00:00\n"
+"POT-Creation-Date: 2026-05-16T13:43:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: moreconvert-compare-for-woocommerce\n"
@@ -35,14 +35,14 @@ msgid "https://moreconvert.com"
 msgstr ""
 
 #: includes/class-admin.php:106
-#: includes/class-admin.php:684
-#: includes/class-admin.php:685
+#: includes/class-admin.php:677
+#: includes/class-admin.php:678
 msgid "Settings"
 msgstr ""
 
 #: includes/class-admin.php:114
-#: includes/class-admin.php:692
-#: includes/class-admin.php:693
+#: includes/class-admin.php:685
+#: includes/class-admin.php:686
 #: options/fields/add-button.php:40
 #: options/fields/add-button.php:70
 #: options/fields/add-button.php:123
@@ -58,7 +58,7 @@ msgid "Button"
 msgstr ""
 
 #: includes/class-admin.php:131
-#: includes/class-admin.php:396
+#: includes/class-admin.php:389
 msgid "Comparison Table"
 msgstr ""
 
@@ -82,397 +82,389 @@ msgstr ""
 msgid "These settings are not necessary and you can use them if you want."
 msgstr ""
 
-#: includes/class-admin.php:156
-msgid "Custom CSS"
-msgstr ""
-
-#: includes/class-admin.php:157
-msgid "This feature allows you to add your own custom CSS code to modify the appearance of your website. Use this feature if you want to make specific design changes that cannot be done through the plugin's existing styling options."
-msgstr ""
-
-#: includes/class-admin.php:165
+#: includes/class-admin.php:158
 msgid "CSS Print Method"
 msgstr ""
 
-#: includes/class-admin.php:167
+#: includes/class-admin.php:160
 msgid "External File"
 msgstr ""
 
-#: includes/class-admin.php:168
+#: includes/class-admin.php:161
 msgid "Internal Embedding"
 msgstr ""
 
-#: includes/class-admin.php:170
+#: includes/class-admin.php:163
 msgid "For better performance and organization, it is recommended to use an external file for CSS rather than internal embedding."
 msgstr ""
 
-#: includes/class-admin.php:173
+#: includes/class-admin.php:166
 msgid "Remove all data"
 msgstr ""
 
-#: includes/class-admin.php:174
+#: includes/class-admin.php:167
 msgid "Uncheck , if you want to prevent data loss when deleting the plugin"
 msgstr ""
 
-#: includes/class-admin.php:187
+#: includes/class-admin.php:180
 msgid "\"Add to Compare\" Buttons Style"
 msgstr ""
 
-#: includes/class-admin.php:191
+#: includes/class-admin.php:184
 msgid "Button Single style"
 msgstr ""
 
-#: includes/class-admin.php:195
-#: includes/class-admin.php:237
+#: includes/class-admin.php:188
+#: includes/class-admin.php:230
 msgid "Border Css"
 msgstr ""
 
-#: includes/class-admin.php:203
-#: includes/class-admin.php:245
+#: includes/class-admin.php:196
+#: includes/class-admin.php:238
 msgid "Icon size"
 msgstr ""
 
-#: includes/class-admin.php:211
-#: includes/class-admin.php:253
+#: includes/class-admin.php:204
+#: includes/class-admin.php:246
 msgid "Font size"
 msgstr ""
 
-#: includes/class-admin.php:219
-#: includes/class-admin.php:261
+#: includes/class-admin.php:212
+#: includes/class-admin.php:254
 msgid "Color"
 msgstr ""
 
-#: includes/class-admin.php:224
-#: includes/class-admin.php:266
+#: includes/class-admin.php:217
+#: includes/class-admin.php:259
 msgid "Background color"
 msgstr ""
 
-#: includes/class-admin.php:229
-#: includes/class-admin.php:271
+#: includes/class-admin.php:222
+#: includes/class-admin.php:264
 msgid "e.g. 10px, 15rem, 13em etc."
 msgstr ""
 
-#: includes/class-admin.php:233
+#: includes/class-admin.php:226
 msgid "Button Loop style"
 msgstr ""
 
 #. translators: 1: single/loop product page text
-#: includes/class-admin.php:282
-#: includes/class-admin.php:333
+#: includes/class-admin.php:275
+#: includes/class-admin.php:326
 msgid "\"Add to Compare\" Button %s"
 msgstr ""
 
 #. translators: 1: single/loop product page text
-#: includes/class-admin.php:282
+#: includes/class-admin.php:275
 msgid "on Single Product Page"
 msgstr ""
 
-#: includes/class-admin.php:283
+#: includes/class-admin.php:276
 msgid "Design your compare button on your product page."
 msgstr ""
 
-#: includes/class-admin.php:291
+#: includes/class-admin.php:284
 msgid "Show in Single Product"
 msgstr ""
 
-#: includes/class-admin.php:294
+#: includes/class-admin.php:287
 msgid "Show compare button on single product pages."
 msgstr ""
 
-#: includes/class-admin.php:297
+#: includes/class-admin.php:290
 msgid "Button position"
 msgstr ""
 
-#: includes/class-admin.php:303
-#: includes/class-admin.php:360
+#: includes/class-admin.php:296
+#: includes/class-admin.php:353
 msgid "Before \"add to cart\" button"
 msgstr ""
 
-#: includes/class-admin.php:304
-#: includes/class-admin.php:361
+#: includes/class-admin.php:297
+#: includes/class-admin.php:354
 msgid "After \"add to cart\" button"
 msgstr ""
 
-#: includes/class-admin.php:305
-#: includes/class-admin.php:362
+#: includes/class-admin.php:298
+#: includes/class-admin.php:355
 msgid "Use shortcode"
 msgstr ""
 
-#: includes/class-admin.php:308
+#: includes/class-admin.php:301
 msgid "button position on the product page"
 msgstr ""
 
-#: includes/class-admin.php:312
-#: includes/class-admin.php:372
+#: includes/class-admin.php:305
+#: includes/class-admin.php:365
 msgid "Shortcode button"
 msgstr ""
 
-#: includes/class-admin.php:325
+#: includes/class-admin.php:318
 msgid "Use this shortcode to specify a custom position. Just copy this shortcode wherever you want the button to be displayed."
 msgstr ""
 
 #. translators: 1: single/loop product page text
-#: includes/class-admin.php:333
+#: includes/class-admin.php:326
 msgid "on Product Listings/Loops"
 msgstr ""
 
-#: includes/class-admin.php:334
+#: includes/class-admin.php:327
 msgid "Design your compare button on your shop page and other loops."
 msgstr ""
 
-#: includes/class-admin.php:345
+#: includes/class-admin.php:338
 msgid "Show \"add to Compare\" in listings"
 msgstr ""
 
-#: includes/class-admin.php:346
+#: includes/class-admin.php:339
 msgid "Enable the \"add to Compare\" feature in WooCommerce products' listing"
 msgstr ""
 
-#: includes/class-admin.php:349
+#: includes/class-admin.php:342
 msgid "By activating this option, the Add to Compare button will be displayed in all lists."
 msgstr ""
 
-#: includes/class-admin.php:352
+#: includes/class-admin.php:345
 msgid "Button position in listings"
 msgstr ""
 
-#: includes/class-admin.php:353
+#: includes/class-admin.php:346
 msgid "Choose where to show \"Add to Compare\" button or link in WooCommerce products' listing."
 msgstr ""
 
-#: includes/class-admin.php:369
+#: includes/class-admin.php:362
 msgid "Select the button position to view in the lists. Preferably similar to the button position on the product page."
 msgstr ""
 
-#: includes/class-admin.php:399
+#: includes/class-admin.php:392
 msgid "Fields to Show"
 msgstr ""
 
-#: includes/class-admin.php:402
+#: includes/class-admin.php:395
 msgid "Image"
 msgstr ""
 
-#: includes/class-admin.php:403
+#: includes/class-admin.php:396
 msgid "Title"
 msgstr ""
 
-#: includes/class-admin.php:404
+#: includes/class-admin.php:397
 msgid "Price"
 msgstr ""
 
-#: includes/class-admin.php:405
-#: includes/class-admin.php:523
+#: includes/class-admin.php:398
+#: includes/class-admin.php:516
 #: includes/class-frontend.php:133
 #: includes/class-frontend.php:271
 msgid "SKU"
 msgstr ""
 
-#: includes/class-admin.php:406
+#: includes/class-admin.php:399
 msgid "Review Count & Rating"
 msgstr ""
 
-#: includes/class-admin.php:407
+#: includes/class-admin.php:400
 msgid "Stock"
 msgstr ""
 
-#: includes/class-admin.php:408
+#: includes/class-admin.php:401
 msgid "Add to cart"
 msgstr ""
 
-#: includes/class-admin.php:409
+#: includes/class-admin.php:402
 msgid "Attributes"
 msgstr ""
 
-#: includes/class-admin.php:410
+#: includes/class-admin.php:403
 msgid "Variations"
 msgstr ""
 
-#: includes/class-admin.php:411
+#: includes/class-admin.php:404
 msgid "Short description"
 msgstr ""
 
-#: includes/class-admin.php:412
-#: includes/class-admin.php:511
+#: includes/class-admin.php:405
+#: includes/class-admin.php:504
 #: includes/class-frontend.php:114
 #: includes/class-frontend.php:251
 msgid "Weight"
 msgstr ""
 
-#: includes/class-admin.php:413
-#: includes/class-admin.php:517
+#: includes/class-admin.php:406
+#: includes/class-admin.php:510
 #: includes/class-frontend.php:124
 #: includes/class-frontend.php:262
 msgid "Dimensions"
 msgstr ""
 
-#: includes/class-admin.php:437
+#: includes/class-admin.php:430
 msgid "Compare Settings"
 msgstr ""
 
-#: includes/class-admin.php:454
+#: includes/class-admin.php:447
 msgid "Labels"
 msgstr ""
 
-#: includes/class-admin.php:462
+#: includes/class-admin.php:455
 msgid "Text Settings"
 msgstr ""
 
-#: includes/class-admin.php:465
+#: includes/class-admin.php:458
 msgid "Add to Compare Text"
 msgstr ""
 
-#: includes/class-admin.php:468
+#: includes/class-admin.php:461
 #: includes/class-frontend.php:525
 msgid "Add to Compare"
 msgstr ""
 
-#: includes/class-admin.php:471
+#: includes/class-admin.php:464
 msgid "Select a Product Text"
 msgstr ""
 
-#: includes/class-admin.php:474
+#: includes/class-admin.php:467
 msgid "Select a Product"
 msgstr ""
 
-#: includes/class-admin.php:477
+#: includes/class-admin.php:470
 msgid "Add to Cart Text"
 msgstr ""
 
-#: includes/class-admin.php:480
+#: includes/class-admin.php:473
 #: includes/class-frontend.php:532
 msgid "Add to Cart"
 msgstr ""
 
-#: includes/class-admin.php:483
+#: includes/class-admin.php:476
 msgid "Specifications Text"
 msgstr ""
 
-#: includes/class-admin.php:486
+#: includes/class-admin.php:479
 #: includes/class-frontend.php:533
 msgid "Specifications"
 msgstr ""
 
-#: includes/class-admin.php:489
+#: includes/class-admin.php:482
 msgid "Availability Text"
 msgstr ""
 
-#: includes/class-admin.php:492
+#: includes/class-admin.php:485
 #: includes/class-frontend.php:93
 #: includes/class-frontend.php:230
 msgid "Availability"
 msgstr ""
 
-#: includes/class-admin.php:495
+#: includes/class-admin.php:488
 msgid "Reviews Text"
 msgstr ""
 
-#: includes/class-admin.php:498
+#: includes/class-admin.php:491
 #: includes/class-frontend.php:103
 #: includes/class-frontend.php:240
 msgid "Reviews"
 msgstr ""
 
-#: includes/class-admin.php:501
+#: includes/class-admin.php:494
 msgid "Reviews Format"
 msgstr ""
 
-#: includes/class-admin.php:504
+#: includes/class-admin.php:497
 #: includes/class-frontend.php:99
 #: includes/class-frontend.php:236
 msgid "{count} Reviews ({rating} stars)"
 msgstr ""
 
-#: includes/class-admin.php:505
+#: includes/class-admin.php:498
 msgid "You can use the following placeholders: <code>{count}</code>,<code>{rating}</code>"
 msgstr ""
 
-#: includes/class-admin.php:508
+#: includes/class-admin.php:501
 msgid "Weight Text"
 msgstr ""
 
-#: includes/class-admin.php:514
+#: includes/class-admin.php:507
 msgid "Dimensions Text"
 msgstr ""
 
-#: includes/class-admin.php:520
+#: includes/class-admin.php:513
 msgid "SKU Text"
 msgstr ""
 
-#: includes/class-admin.php:526
+#: includes/class-admin.php:519
 msgid "Description Text"
 msgstr ""
 
-#: includes/class-admin.php:529
+#: includes/class-admin.php:522
 #: includes/class-frontend.php:142
 #: includes/class-frontend.php:280
 msgid "Description"
 msgstr ""
 
-#: includes/class-admin.php:536
+#: includes/class-admin.php:529
 msgid "Popup Text Settings"
 msgstr ""
 
-#: includes/class-admin.php:539
+#: includes/class-admin.php:532
 msgid "Top Products  Text"
 msgstr ""
 
-#: includes/class-admin.php:542
+#: includes/class-admin.php:535
 #: includes/class-frontend.php:534
 msgid "Top Products for Comparison"
 msgstr ""
 
-#: includes/class-admin.php:545
+#: includes/class-admin.php:538
 msgid "Search a Product Text"
 msgstr ""
 
-#: includes/class-admin.php:548
+#: includes/class-admin.php:541
 msgid "Search a Product"
 msgstr ""
 
-#: includes/class-admin.php:551
+#: includes/class-admin.php:544
 msgid "No Products Text"
 msgstr ""
 
-#: includes/class-admin.php:554
+#: includes/class-admin.php:547
 msgid "No products in your comparison list."
 msgstr ""
 
-#: includes/class-admin.php:557
+#: includes/class-admin.php:550
 msgid "Popup product count template"
 msgstr ""
 
-#: includes/class-admin.php:560
+#: includes/class-admin.php:553
 #: includes/class-frontend.php:529
 msgid "Showing {loaded} of {totalProducts} products"
 msgstr ""
 
-#: includes/class-admin.php:561
+#: includes/class-admin.php:554
 msgid "You can use the following placeholders: <code>{loaded}</code>,<code>{totalProducts}</code>"
 msgstr ""
 
-#: includes/class-admin.php:564
+#: includes/class-admin.php:557
 msgid "No more products Text"
 msgstr ""
 
-#: includes/class-admin.php:567
+#: includes/class-admin.php:560
 msgid "No more products."
 msgstr ""
 
-#: includes/class-admin.php:570
+#: includes/class-admin.php:563
 msgid "error Text"
 msgstr ""
 
-#: includes/class-admin.php:573
+#: includes/class-admin.php:566
 #: includes/class-frontend.php:531
 msgid "An error occurred."
 msgstr ""
 
-#: includes/class-admin.php:584
+#: includes/class-admin.php:577
 msgid "Compare Text Settings"
 msgstr ""
 
-#: includes/class-admin.php:674
-#: includes/class-admin.php:675
+#: includes/class-admin.php:667
+#: includes/class-admin.php:668
 msgid "MC Compare"
 msgstr ""
 

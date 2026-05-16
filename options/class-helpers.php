@@ -118,7 +118,7 @@ class Helpers {
 			foreach ( $fields as $key => $field ) {
 
 				/**
-				* If ( $key === $field_name && isset( $field['type']) && in_array( $field['type'], array( 'checkbox', 'checkbox-group', 'code-editor', 'color' , 'datepicker', 'daterange', 'email', 'hidden', 'hidden-name', 'multi-select', 'number', 'page-select', 'radio', 'search-post', 'search-product', 'search-product-cat', 'search-users', 'select', 'select-file', 'select-icon', 'switch', 'text', 'textarea', 'upload-image', 'url', 'value', 'wp-editor' ), true ) ) {
+				* If ( $key === $field_name && isset( $field['type']) && in_array( $field['type'], array( 'checkbox', 'checkbox-group', 'color' , 'datepicker', 'daterange', 'email', 'hidden', 'hidden-name', 'multi-select', 'number', 'page-select', 'radio', 'search-post', 'search-product', 'search-product-cat', 'search-users', 'select', 'select-file', 'select-icon', 'switch', 'text', 'textarea', 'upload-image', 'url', 'value', 'wp-editor' ), true ) ) {
 				*   return $field;
 				*}
 				*/
