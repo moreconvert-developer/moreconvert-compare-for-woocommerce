@@ -746,8 +746,8 @@ if ( ! class_exists( 'Frontend' ) ) {
 					$generated_code .= $rules_code;
 				}
 			}
-			$generated_code  = apply_filters( 'moreconvert_compare_custom_css_output', $generated_code );
-			$generated_code .= $this->options->get_option( 'custom_css', true );
+			$generated_code = apply_filters( 'moreconvert_compare_custom_css_output', $generated_code );
+
 			return $this->esc_stylesheet( $generated_code );
 		}
 

@@ -152,13 +152,6 @@ if ( ! class_exists( 'Admin' ) ) {
 											'title' => __( 'Advanced settings', 'moreconvert-compare-for-woocommerce' ),
 											'desc'  => __( 'These settings are not necessary and you can use them if you want.', 'moreconvert-compare-for-woocommerce' ),
 										),
-										'custom_css'       => array(
-											'label'     => __( 'Custom CSS', 'moreconvert-compare-for-woocommerce' ),
-											'help'      => __( 'This feature allows you to add your own custom CSS code to modify the appearance of your website. Use this feature if you want to make specific design changes that cannot be done through the plugin\'s existing styling options.', 'moreconvert-compare-for-woocommerce' ),
-											'type'      => 'code-editor',
-											'code_type' => 'css',
-											'editor_height' => '400px',
-										),
 										'css_print_method' => array(
 											'type'    => 'select',
 											'default' => 'internal',

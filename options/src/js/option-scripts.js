@@ -694,59 +694,6 @@
 				});
 		}
 
-		function initCssEditor() {
-			$('.mct-code-editor').each(function () {
-				const textarea = $(this)[0];
-				const type = $(this).data('type').trim();
-				const height = $(this).data('height').trim() || 'auto';
-				let mode = 'text/plain';
-
-				if (type === 'css') {
-					mode = 'css';
-				} else if (type === 'php') {
-					mode = 'php';
-				} else if (type === 'javascript' || type === 'js') {
-					mode = 'javascript';
-				} else if (type === 'html') {
-					mode = 'htmlmixed';
-				} else if (type === 'json') {
-					mode = 'application/json';
-				}
-
-				const editorSettings = {
-					type,
-					codemirror: {
-						mode,
-						styleActiveLine: true,
-						gutters: [
-							'CodeMirror-linenumbers',
-							'CodeMirror-lint-markers',
-						],
-						lineNumbers: true,
-						autoCloseBrackets: true,
-						matchBrackets: true,
-						viewportMargin: Infinity,
-						height,
-						autoRefresh: true,
-					},
-				};
-				if (type === 'php') {
-					editorSettings.codemirror.extraKeys = {
-						'Ctrl-Space': 'autocomplete',
-					};
-				} else {
-					editorSettings.codemirror.lint = true;
-				}
-				const editor = wp.codeEditor.initialize(
-					textarea,
-					editorSettings
-				);
-				editor.codemirror.on('change', function () {
-					textarea.value = editor.codemirror.getValue();
-				});
-			});
-		}
-
 		$('.mct-repeater.simple-repeater').repeater({
 			limitMessage: moreconvertmctAdminParams.i18n_limit_repeater_alert,
 			show() {
@@ -1549,7 +1496,6 @@
 		initSearchPost();
 		initSearchUser();
 		initDatePicker();
-		initCssEditor();
 		initWizard();
 		initValidate();
 		initSticky();

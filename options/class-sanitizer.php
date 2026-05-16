@@ -85,11 +85,6 @@ class Sanitizer {
 				// filename or url.
 				return sanitize_text_field( $value );
 
-			case 'code-editor':
-				// Code content – do not strip anything (already stored as plain text).
-				// But prevent potential XSS if output in unsafe context.
-				return sanitize_textarea_field( $value ); // assuming esc_textarea will be used on output.
-
 			case 'search-product':
 			case 'search-product-cat':
 			case 'search-post':

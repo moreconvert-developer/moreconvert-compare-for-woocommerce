@@ -191,10 +191,10 @@ class Insights {
 
 		add_action( 'admin_init', array( $this, 'handle_optin_optout' ) );
 
-		add_action( 'wp_ajax_' . $this->client->slug . '_submit-uninstall-reason', array( $this, 'uninstall_reason_submission' ) );
+		add_action( 'wp_ajax_moreconvert_appsero_' . $this->client->slug . '_submit-uninstall-reason', array( $this, 'uninstall_reason_submission' ) );
 
 		add_filter( 'cron_schedules', array( $this, 'add_weekly_schedule' ) );
-		add_action( $this->client->slug . '_tracker_send_event', array( $this, 'send_tracking_data' ) );
+		add_action( 'moreconvert_appsero_' . $this->client->slug . '_tracker_send_event', array( $this, 'send_tracking_data' ) );
 	}
 
 	/**
@@ -220,7 +220,7 @@ class Insights {
 
 		$response = $this->client->send_request( $tracking_data, 'track' );
 
-		update_option( $this->client->slug . '_tracking_last_send', time() );
+		update_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_last_send', time() );
 	}
 
 	/**
@@ -300,15 +300,15 @@ class Insights {
 		}
 
 		// Check if tracking was previously skipped.
-		$skipped = get_option( $this->client->slug . '_tracking_skipped' );
+		$skipped = get_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_skipped' );
 
 		if ( 'yes' === $skipped ) {
-			delete_option( $this->client->slug . '_tracking_skipped' );
+			delete_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_skipped' );
 
 			$data['tracking_skipped'] = true;
 		}
 
-		return apply_filters( $this->client->slug . '_tracker_data', $data ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
+		return apply_filters( 'moreconvert_appsero_' . $this->client->slug . '_tracker_data', $data ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 	}
 
 	/**
@@ -356,7 +356,7 @@ class Insights {
 	 * @return bool
 	 */
 	public function tracking_allowed() {
-		$allow_tracking = get_option( $this->client->slug . '_allow_tracking', 'no' );
+		$allow_tracking = get_option( 'moreconvert_appsero_' . $this->client->slug . '_allow_tracking', 'no' );
 
 		return 'yes' === $allow_tracking;
 	}
@@ -367,7 +367,7 @@ class Insights {
 	 * @return false|string
 	 */
 	private function get_last_send() {
-		return get_option( $this->client->slug . '_tracking_last_send', false );
+		return get_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_last_send', false );
 	}
 
 	/**
@@ -376,7 +376,7 @@ class Insights {
 	 * @return bool
 	 */
 	public function notice_dismissed() {
-		$hide_notice = get_option( $this->client->slug . '_tracking_notice', null );
+		$hide_notice = get_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_notice', null );
 
 		if ( 'hide' === $hide_notice ) {
 			return true;
@@ -412,7 +412,7 @@ class Insights {
 	 * @return void
 	 */
 	private function schedule_event() {
-		$hook_name = wp_unslash( $this->client->slug . '_tracker_send_event' );
+		$hook_name = wp_unslash( 'moreconvert_appsero_' . $this->client->slug . '_tracker_send_event' );
 
 		if ( ! wp_next_scheduled( $hook_name ) ) {
 			wp_schedule_event( time(), 'weekly', $hook_name );
@@ -425,7 +425,7 @@ class Insights {
 	 * @return void
 	 */
 	private function clear_schedule_event() {
-		wp_clear_scheduled_hook( $this->client->slug . '_tracker_send_event' );
+		wp_clear_scheduled_hook( 'moreconvert_appsero_' . $this->client->slug . '_tracker_send_event' );
 	}
 
 	/**
@@ -574,14 +574,14 @@ class Insights {
 	 * @return void
 	 */
 	public function optin() {
-		update_option( $this->client->slug . '_allow_tracking', 'yes' );
-		update_option( $this->client->slug . '_tracking_notice', 'hide' );
+		update_option( 'moreconvert_appsero_' . $this->client->slug . '_allow_tracking', 'yes' );
+		update_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_notice', 'hide' );
 
 		$this->clear_schedule_event();
 		$this->schedule_event();
 		$this->send_tracking_data();
 
-		do_action( $this->client->slug . '_tracker_optin', $this->get_tracking_data() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
+		do_action( 'moreconvert_appsero_' . $this->client->slug . '_tracker_optin', $this->get_tracking_data() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 	}
 
 	/**
@@ -590,12 +590,12 @@ class Insights {
 	 * @return void
 	 */
 	public function optout() {
-		update_option( $this->client->slug . '_allow_tracking', 'no' );
-		update_option( $this->client->slug . '_tracking_notice', 'hide' );
+		update_option( 'moreconvert_appsero_' . $this->client->slug . '_allow_tracking', 'no' );
+		update_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_notice', 'hide' );
 
 		$this->clear_schedule_event();
 
-		do_action( $this->client->slug . '_tracker_optout' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
+		do_action( 'moreconvert_appsero_' . $this->client->slug . '_tracker_optout' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 	}
 
 	/**
@@ -754,19 +754,19 @@ class Insights {
 	 * @return void
 	 */
 	public function activate_plugin() {
-		$allowed = get_option( $this->client->slug . '_allow_tracking', 'no' );
+		$allowed = get_option( 'moreconvert_appsero_' . $this->client->slug . '_allow_tracking', 'no' );
 
 		if ( 'yes' !== $allowed ) {
 			return;
 		}
 
-		$hook_name = $this->client->slug . '_tracker_send_event';
+		$hook_name = 'moreconvert_appsero_' . $this->client->slug . '_tracker_send_event';
 
 		if ( ! wp_next_scheduled( $hook_name ) ) {
 			wp_schedule_event( time(), 'weekly', $hook_name );
 		}
 
-		delete_option( $this->client->slug . '_tracking_last_send' );
+		delete_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_last_send' );
 
 		$this->send_tracking_data( true );
 	}
@@ -780,11 +780,11 @@ class Insights {
 		$this->clear_schedule_event();
 
 		if ( 'theme' === $this->client->type ) {
-			delete_option( $this->client->slug . '_tracking_last_send' );
-			delete_option( $this->client->slug . '_allow_tracking' );
+			delete_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_last_send' );
+			delete_option( 'moreconvert_appsero_' . $this->client->slug . '_allow_tracking' );
 		}
 
-		delete_option( $this->client->slug . '_tracking_notice' );
+		delete_option( 'moreconvert_appsero_' . $this->client->slug . '_tracking_notice' );
 	}
 
 	/**
@@ -885,7 +885,7 @@ class Insights {
 		/*
 		 * Fire after the plugin _uninstall_reason_submitted.
 		 */
-		do_action( $this->client->slug . '_uninstall_reason_submitted', $data ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
+		do_action( 'moreconvert_appsero_' . $this->client->slug . '_uninstall_reason_submitted', $data ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound
 
 		wp_send_json_success();
 	}
@@ -1218,9 +1218,9 @@ class Insights {
 				margin-left: 4px;
 			}';
 
-		wp_register_style( $this->client->slug . '-appsero-deactivation', false, array(), $this->client->project_version );
-		wp_enqueue_style( $this->client->slug . '-appsero-deactivation' );
-		wp_add_inline_style( $this->client->slug . '-appsero-deactivation', $custom_css );
+		wp_register_style( 'moreconvert-appsero-' . $this->client->slug . '-deactivation', false, array(), $this->client->project_version );
+		wp_enqueue_style( 'moreconvert-appsero-' . $this->client->slug . '-deactivation' );
+		wp_add_inline_style( 'moreconvert-appsero-' . $this->client->slug . '-deactivation', $custom_css );
 	}
 
 	/**
@@ -1295,7 +1295,7 @@ class Insights {
 							type: 'POST',
 							data: {
 								nonce: '" . esc_js( wp_create_nonce( 'appsero-security-nonce' ) ) . "',
-								action: '" . esc_js( $this->client->slug ) . "_submit-uninstall-reason',
+								action: 'moreconvert_appsero_" . esc_js( $this->client->slug ) . "_submit-uninstall-reason',
 								reason_id: (0 === radio.length) ? 'none' : radio.val(),
 								reason_info: (0 !== input.length) ? input.val().trim() : ''
 							},
@@ -1310,8 +1310,8 @@ class Insights {
 					});
 				});
 			}(jQuery));";
-		wp_register_script( $this->client->slug . '-appsero-deactivation', false, array( 'jquery' ), $this->client->project_version, true );
-		wp_enqueue_script( $this->client->slug . '-appsero-deactivation' );
-		wp_add_inline_script( $this->client->slug . '-appsero-deactivation', $custom_js );
+		wp_register_script( 'moreconvert-appsero-' . $this->client->slug . '-deactivation', false, array( 'jquery' ), $this->client->project_version, true );
+		wp_enqueue_script( 'moreconvert-appsero-' . $this->client->slug . '-deactivation' );
+		wp_add_inline_script( 'moreconvert-appsero-' . $this->client->slug . '-deactivation', $custom_js );
 	}
 }
