@@ -36,13 +36,6 @@ function moreconvert_compare_uninstall() {
 		);
 		// Clear any cached data that has been removed.
 		wp_cache_flush();
-
-		$upload_dir = wp_upload_dir();
-
-		// Remove files.
-		if ( file_exists( trailingslashit( $upload_dir['basedir'] . '/more-convert/' ) . 'moreconvert-compare-inline.css' ) ) {
-			wp_delete_file( trailingslashit( $upload_dir['basedir'] . '/more-convert/' ) . 'moreconvert-compare-inline.css' );
-		}
 	}
 }
 

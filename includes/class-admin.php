@@ -83,13 +83,6 @@ if ( ! class_exists( 'Admin' ) ) {
 					'after_ajax_update_options',
 				)
 			);
-			add_action(
-				'moreconvert_framework_panel_after_moreconvert_compare_options_update',
-				array(
-					$this,
-					'after_update_options',
-				)
-			);
 		}
 
 		/**
@@ -151,16 +144,6 @@ if ( ! class_exists( 'Admin' ) ) {
 											'type'  => 'start',
 											'title' => __( 'Advanced settings', 'moreconvert-compare-for-woocommerce' ),
 											'desc'  => __( 'These settings are not necessary and you can use them if you want.', 'moreconvert-compare-for-woocommerce' ),
-										),
-										'css_print_method' => array(
-											'type'    => 'select',
-											'default' => 'internal',
-											'label'   => esc_html__( 'CSS Print Method', 'moreconvert-compare-for-woocommerce' ),
-											'options' => array(
-												'external' => esc_html__( 'External File', 'moreconvert-compare-for-woocommerce' ),
-												'internal' => esc_html__( 'Internal Embedding', 'moreconvert-compare-for-woocommerce' ),
-											),
-											'desc'    => __( 'For better performance and organization, it is recommended to use an external file for CSS rather than internal embedding.', 'moreconvert-compare-for-woocommerce' ),
 										),
 										'remove_all_data'  => array(
 											'label' => __( 'Remove all data', 'moreconvert-compare-for-woocommerce' ),
@@ -599,24 +582,6 @@ if ( ! class_exists( 'Admin' ) ) {
 			}
 		}
 
-
-		/**
-		 * Update moreconvert-compare-inline.css after update plugin settings.
-		 *
-		 * @since 1.7.7
-		 */
-		public function after_update_options() {
-			// phpcs:disable WordPress.Security
-			if ( isset( $_POST['mct-action'] ) ) {
-				$css_print_method = isset( $_POST['css_print_method'] ) ? sanitize_text_field( wp_unslash( $_POST['css_print_method'] ) ) : 'internal';
-				if ( 'external' === $css_print_method ) {
-					$this->create_css_file();
-				}
-			}
-			// phpcs:enable WordPress.Security
-		}
-
-
 		/**
 		 * Update page ids and remove data state after update plugin settings.
 		 *
@@ -628,34 +593,8 @@ if ( ! class_exists( 'Admin' ) ) {
 			if ( isset( $new_options['compare'] ) ) {
 				$state = isset( $new_options['compare']['remove_all_data'] ) ? sanitize_text_field( wp_unslash( $new_options['compare']['remove_all_data'] ) ) : '';
 				update_option( 'moreconvert_compare_remove_all_data', $state );
-				$css_print_method = isset( $new_options['compare']['css_print_method'] ) ? sanitize_text_field( wp_unslash( $new_options['compare']['css_print_method'] ) ) : 'internal';
-				if ( 'external' === $css_print_method ) {
-					$this->create_css_file();
-				}
 			}
 		}
-
-		/**
-		 * Create css file for external method
-		 *
-		 * @return void
-		 * @since 1.7.7
-		 */
-		protected function create_css_file() {
-			$upload_dir = wp_upload_dir();
-			if ( file_exists( trailingslashit( $upload_dir['basedir'] . '/more-convert/' ) . 'moreconvert-compare-inline.css' ) ) {
-				wp_delete_file( trailingslashit( $upload_dir['basedir'] . '/more-convert/' ) . 'moreconvert-compare-inline.css' );
-			}
-			if ( wp_mkdir_p( $upload_dir['basedir'] . '/more-convert/' ) && ! file_exists( trailingslashit( $upload_dir['basedir'] ) . '/more-convert/moreconvert-compare-inline.css' ) ) {
-				$file_handle = @fopen( trailingslashit( $upload_dir['basedir'] ) . '/more-convert/moreconvert-compare-inline.css', 'w' ); //phpcs:ignore
-				if ( $file_handle ) {
-					fwrite( $file_handle, Frontend::get_instance()->build_custom_css() ); //phpcs:ignore
-					fclose( $file_handle ); //phpcs:ignore
-					update_option( 'moreconvert_compare_css_version', floatval( get_option( 'moreconvert_compare_css_version', 1 ) ) + .001 );
-				}
-			}
-		}
-
 
 		/**
 		 * Add admin menu

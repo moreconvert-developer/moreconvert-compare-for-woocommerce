@@ -536,13 +536,9 @@ if ( ! class_exists( 'Frontend' ) ) {
 				)
 			);
 
-			if ( 'external' === $this->options->get_option( 'css_print_method', 'internal' ) ) {
-				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_saved_css_file' ), 999999999 );
-			} else {
-				$custom_css = $this->build_custom_css();
-				if ( $custom_css ) {
-					wp_add_inline_style( 'moreconvert-compare', $custom_css );
-				}
+			$custom_css = $this->build_custom_css();
+			if ( $custom_css ) {
+				wp_add_inline_style( 'moreconvert-compare', $custom_css );
 			}
 		}
 
@@ -797,20 +793,6 @@ if ( ! class_exists( 'Frontend' ) ) {
 			$css = str_replace( '<', '\\3C ', $css );
 
 			return $css;
-		}
-
-		/**
-		 * Enqueue external css file
-		 *
-		 * @return void
-		 * @since 1.7.7
-		 */
-		public function enqueue_saved_css_file() {
-
-			if ( wp_style_is( 'moreconvert-compare', 'enqueued' ) ) {
-				$upload_dir = wp_upload_dir();
-				wp_enqueue_style( 'moreconvert-compare-inline-styles', $upload_dir['baseurl'] . '/more-convert/moreconvert-compare-inline.css', null, get_option( 'moreconvert_compare_css_version', 1 ) );
-			}
 		}
 
 		/**
