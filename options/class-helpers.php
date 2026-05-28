@@ -93,7 +93,7 @@ class Helpers {
 
 		// Case 2: Section without tabs - fields directly under 'fields'.
 		if ( isset( $section['fields'] ) && is_array( $section['fields'] ) ) {
-			return self::get_field( $section, $field_name );
+			return self::get_field( $section['fields'], $field_name );
 		}
 
 		// Field not found.
