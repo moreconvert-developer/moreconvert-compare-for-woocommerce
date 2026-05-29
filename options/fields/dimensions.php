@@ -32,7 +32,7 @@ $val = is_array( $value ) ? $value : array(
 	'is_linked' => '1',
 );
 
-$units = $field['units'] ?? array( 'px', 'em', 'rem', '%' );
+$units     = $field['units'] ?? array( 'px', 'em', 'rem', '%' );
 $is_linked = ( isset( $val['is_linked'] ) && '1' === (string) $val['is_linked'] );
 ?>
 

@@ -35,7 +35,7 @@ $step  = $field['step'] ?? '1';
 ?>
 
 <div class="mct-slider-unit-container <?php echo esc_attr( $class ); ?>" id="<?php echo esc_attr( $field_id ); ?>_wrapper" <?php echo wp_kses_post( $dependencies ); ?>>
-	<div class="mct-slider-unit-fields <?php echo ( ! empty( $units ) ) ?  'mct-have-unit': '' ;?> d-inline-flex f-center gap-10">
+	<div class="mct-slider-unit-fields <?php echo ( ! empty( $units ) ) ? 'mct-have-unit' : ''; ?> d-inline-flex f-center gap-10">
 
 		<div class="mct-slider-range-wrapper" >
 			<input
@@ -63,14 +63,14 @@ $step  = $field['step'] ?? '1';
 				<?php echo wp_kses_post( $custom_attributes ); ?>
 			/>
 		</div>
-        <?php if ( ! empty( $units ) ): ?>
-            <div class="mct-slider-unit-wrapper">
-                <select name="<?php echo esc_attr( $name . '[unit]' ); ?>" class="mct-slider-unit-select">
-                    <?php foreach ( $units as $unit ) : ?>
-                        <option value="<?php echo esc_attr( $unit ); ?>" <?php selected( $val['unit'] ?? 'px', $unit ); ?>><?php echo esc_html( $unit ); ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-        <?php endif; ?>
+		<?php if ( ! empty( $units ) ) : ?>
+			<div class="mct-slider-unit-wrapper">
+				<select name="<?php echo esc_attr( $name . '[unit]' ); ?>" class="mct-slider-unit-select">
+					<?php foreach ( $units as $unit ) : ?>
+						<option value="<?php echo esc_attr( $unit ); ?>" <?php selected( $val['unit'] ?? 'px', $unit ); ?>><?php echo esc_html( $unit ); ?></option>
+					<?php endforeach; ?>
+				</select>
+			</div>
+		<?php endif; ?>
 	</div>
 </div>
