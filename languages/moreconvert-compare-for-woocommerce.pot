@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-29T14:59:55+00:00\n"
+"POT-Creation-Date: 2026-05-29T18:08:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: moreconvert-compare-for-woocommerce\n"
@@ -751,36 +751,40 @@ msgstr ""
 msgid "Add new button"
 msgstr ""
 
-#: options/fields/box-shadow.php:39
+#: options/fields/box-shadow.php:41
 msgid "Color"
 msgstr ""
 
-#: options/fields/box-shadow.php:43
+#: options/fields/box-shadow.php:45
 msgid "Horizontal"
 msgstr ""
 
-#: options/fields/box-shadow.php:73
+#: options/fields/box-shadow.php:75
 msgid "Vertical"
 msgstr ""
 
-#: options/fields/box-shadow.php:103
+#: options/fields/box-shadow.php:105
 msgid "Blur"
 msgstr ""
 
-#: options/fields/box-shadow.php:133
+#: options/fields/box-shadow.php:135
 msgid "Spread"
 msgstr ""
 
-#: options/fields/box-shadow.php:164
+#: options/fields/box-shadow.php:166
 msgid "Position"
 msgstr ""
 
-#: options/fields/box-shadow.php:166
+#: options/fields/box-shadow.php:168
 msgid "Outline"
 msgstr ""
 
-#: options/fields/box-shadow.php:167
+#: options/fields/box-shadow.php:169
 msgid "Inset"
+msgstr ""
+
+#: options/fields/box-shadow.php:173
+msgid "Unit"
 msgstr ""
 
 #: options/fields/color-style.php:43

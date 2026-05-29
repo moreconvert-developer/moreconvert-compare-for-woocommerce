@@ -102,7 +102,8 @@
 			search_products:
 				moreconvertCompare.texts.search_products || 'Search products',
 			moreconvert_compare_nonce: moreconvertCompare.ajax_nonce,
-			top_products: moreconvertCompare.texts.top_products || 'Top Products',
+			top_products:
+				moreconvertCompare.texts.top_products || 'Top Products',
 		};
 		$(document.body).append(this.addProductPopupTemplate(this.data));
 
@@ -415,7 +416,9 @@
 	 * @return {number} Maximum number of products to display.
 	 */
 	CompareManager.prototype.getMaxDisplayed = function () {
-		return window.innerWidth < 993 ? 2 : moreconvertCompare.max_products || 4;
+		return window.innerWidth < 993
+			? 2
+			: moreconvertCompare.max_products || 4;
 	};
 
 	/**
@@ -533,7 +536,10 @@
 		if (this.allCompareProducts.some((p) => p.id === productData.id)) {
 			return;
 		}
-		if (this.allCompareProducts.length >= (moreconvertCompare.max_products || 4)) {
+		if (
+			this.allCompareProducts.length >=
+			(moreconvertCompare.max_products || 4)
+		) {
 			return;
 		}
 		this.allCompareProducts = [productData];
@@ -584,7 +590,10 @@
 			}
 			return;
 		}
-		if (this.allCompareProducts.length >= (moreconvertCompare.max_products || 4)) {
+		if (
+			this.allCompareProducts.length >=
+			(moreconvertCompare.max_products || 4)
+		) {
 			return;
 		}
 		this.allCompareProducts.push(productData);
@@ -765,7 +774,8 @@
 			const data = {
 				product,
 				index,
-				add_to_cart_text: moreconvertCompare.texts.add_to_cart || 'Add to Cart',
+				add_to_cart_text:
+					moreconvertCompare.texts.add_to_cart || 'Add to Cart',
 			};
 			$grid.append($cardTemplate(data));
 		});
@@ -833,7 +843,8 @@
 		);
 
 		if (
-			this.allCompareProducts.length < (moreconvertCompare.max_products || 4) &&
+			this.allCompareProducts.length <
+				(moreconvertCompare.max_products || 4) &&
 			this.compareProducts.length < this.getMaxDisplayed()
 		) {
 			const $buttonTemplate = wp.template(
@@ -841,7 +852,8 @@
 			);
 			const data = {
 				select_product_text:
-					moreconvertCompare.texts.select_product || 'Select a product',
+					moreconvertCompare.texts.select_product ||
+					'Select a product',
 			};
 			$grid.append($buttonTemplate(data));
 		}
@@ -999,7 +1011,8 @@
 						if (
 							_this.currentPage > 0 &&
 							response.data.products.length === 0 &&
-							_this.totalProducts < (moreconvertCompare.limit || 10)
+							_this.totalProducts <
+								(moreconvertCompare.limit || 10)
 						) {
 							return;
 						}
@@ -1009,7 +1022,8 @@
 						) {
 							$('.moreconvert-compare-products-section').append(
 								'<div class="moreconvert-compare-message moreconvert-compare-no-more-products">' +
-									(moreconvertCompare.texts.no_more_products ||
+									(moreconvertCompare.texts
+										.no_more_products ||
 										'No more products') +
 									'</div>'
 							);
@@ -1063,7 +1077,8 @@
 										productJson: JSON.stringify(product),
 										product,
 										add_to_compare_text:
-											moreconvertCompare.texts.add_to_compare ||
+											moreconvertCompare.texts
+												.add_to_compare ||
 											'Add to Compare',
 									};
 									$grid.append($itemTemplate(data));
@@ -1138,7 +1153,8 @@
 									'.moreconvert-compare-products-section'
 								).append(
 									'<div class="moreconvert-compare-message moreconvert-compare-no-more-products">' +
-										(moreconvertCompare.texts.no_more_products ||
+										(moreconvertCompare.texts
+											.no_more_products ||
 											'No more products') +
 										'</div>'
 								);
@@ -1166,7 +1182,8 @@
 							.remove();
 						$('.moreconvert-compare-products-grid').html(
 							'<div class="moreconvert-compare-message moreconvert-compare-error">' +
-								(moreconvertCompare.texts.error || 'An error occurred') +
+								(moreconvertCompare.texts.error ||
+									'An error occurred') +
 								'</div>'
 						);
 						_this.updateProductCount(0);

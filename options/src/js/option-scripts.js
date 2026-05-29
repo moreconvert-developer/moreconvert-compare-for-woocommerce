@@ -259,7 +259,9 @@
 						type: 'POST',
 						dataType: 'json',
 						data: {
-							action: moreconvertmctAdminParams.plugin_id + '_ajax_saving',
+							action:
+								moreconvertmctAdminParams.plugin_id +
+								'_ajax_saving',
 							_wpnonce: moreconvertmctAdminParams.ajax_nonce,
 							data: encodeURIComponent(currentForm.serialize()),
 						},
@@ -308,45 +310,57 @@
 			}
 		);
 
-		$(document).on('click', '.mct-dimension-link-btn', function(e) {
+		$(document).on('click', '.mct-dimension-link-btn', function (e) {
 			e.preventDefault();
-			var $btn = $(this);
-			var $hiddenInput = $btn.siblings('.mct-dimension-linked-status');
-			var $container = $btn.closest('.mct-dimensions-fields-wrapper');
+			const $btn = $(this);
+			const $hiddenInput = $btn.siblings('.mct-dimension-linked-status');
+			const $container = $btn.closest('.mct-dimensions-fields-wrapper');
 
 			if ($btn.hasClass('is-linked')) {
 				$btn.removeClass('is-linked');
-				$btn.find('.dashicons').removeClass('dashicons-admin-links').addClass('dashicons-editor-unlink');
+				$btn.find('.dashicons')
+					.removeClass('dashicons-admin-links')
+					.addClass('dashicons-editor-unlink');
 				$hiddenInput.val('0');
 			} else {
 				$btn.addClass('is-linked');
-				$btn.find('.dashicons').removeClass('dashicons-editor-unlink').addClass('dashicons-admin-links');
+				$btn.find('.dashicons')
+					.removeClass('dashicons-editor-unlink')
+					.addClass('dashicons-admin-links');
 				$hiddenInput.val('1');
 
-				var topValue = $container.find('.mct-dimension-top').val();
+				const topValue = $container.find('.mct-dimension-top').val();
 				$container.find('.mct-dimension-field').val(topValue);
 			}
 		});
 
-		$(document).on('input', '.mct-dimension-field', function() {
-			var $currentInput = $(this);
-			var $container = $currentInput.closest('.mct-dimensions-fields-wrapper');
-			var isLinked = $container.find('.mct-dimension-linked-status').val() === '1';
+		$(document).on('input', '.mct-dimension-field', function () {
+			const $currentInput = $(this);
+			const $container = $currentInput.closest(
+				'.mct-dimensions-fields-wrapper'
+			);
+			const isLinked =
+				$container.find('.mct-dimension-linked-status').val() === '1';
 
 			if (isLinked) {
-				var val = $currentInput.val();
+				const val = $currentInput.val();
 				$container.find('.mct-dimension-field').val(val);
 			}
 		});
 
-		$(document).on('input', '.mct-slider-range-control', function() {
-			var $range = $(this);
-			$range.closest('.mct-slider-unit-fields').find('.mct-slider-numeric-input').val($range.val());
+		$(document).on('input', '.mct-slider-range-control', function () {
+			const $range = $(this);
+			$range
+				.closest('.mct-slider-unit-fields')
+				.find('.mct-slider-numeric-input')
+				.val($range.val());
 		});
 
-		$(document).on('input', '.mct-slider-numeric-input', function() {
-			var $num = $(this);
-			$num.closest('.mct-slider-unit-fields').find('.mct-slider-range-control').val($num.val());
+		$(document).on('input', '.mct-slider-numeric-input', function () {
+			const $num = $(this);
+			$num.closest('.mct-slider-unit-fields')
+				.find('.mct-slider-range-control')
+				.val($num.val());
 		});
 
 		function initWizard() {
@@ -618,27 +632,33 @@
 						autoUpdateInput: false,
 						locale: {
 							applyLabel:
-								moreconvertmctAdminParams.range_datepicker.applyLabel,
+								moreconvertmctAdminParams.range_datepicker
+									.applyLabel,
 							cancelLabel:
-								moreconvertmctAdminParams.range_datepicker.cancelLabel,
+								moreconvertmctAdminParams.range_datepicker
+									.cancelLabel,
 							customRangeLabel:
 								moreconvertmctAdminParams.range_datepicker
 									.customRangeLabel,
 						},
 						ranges: {
-							[moreconvertmctAdminParams.range_datepicker.last_7_days]: [
+							[moreconvertmctAdminParams.range_datepicker
+								.last_7_days]: [
 								moment().subtract(6, 'days'),
 								moment(),
 							],
-							[moreconvertmctAdminParams.range_datepicker.last_30_days]: [
+							[moreconvertmctAdminParams.range_datepicker
+								.last_30_days]: [
 								moment().subtract(29, 'days'),
 								moment(),
 							],
-							[moreconvertmctAdminParams.range_datepicker.last_90_days]: [
+							[moreconvertmctAdminParams.range_datepicker
+								.last_90_days]: [
 								moment().subtract(89, 'days'),
 								moment(),
 							],
-							[moreconvertmctAdminParams.range_datepicker.last_365_days]: [
+							[moreconvertmctAdminParams.range_datepicker
+								.last_365_days]: [
 								moment().subtract(364, 'days'),
 								moment(),
 							],
@@ -767,7 +787,11 @@
 				initDatePicker();
 			},
 			hide(deleteElement) {
-				if (confirm(moreconvertmctAdminParams.i18n_delete_repeater_confirm)) {
+				if (
+					confirm(
+						moreconvertmctAdminParams.i18n_delete_repeater_confirm
+					)
+				) {
 					$(this).slideUp(deleteElement);
 				}
 			},
@@ -880,7 +904,9 @@
 
 		// The "Remove" button (remove the value from input type='hidden').
 		$('.mct_remove_image_button').on('click', function () {
-			const answer = confirm(moreconvertmctAdminParams.i18n_delete_image_confirm);
+			const answer = confirm(
+				moreconvertmctAdminParams.i18n_delete_image_confirm
+			);
 			if (answer === true) {
 				const src = $(this).parent().prev().attr('data-src');
 				$(this).parent().prev().attr('src', src);
@@ -943,7 +969,9 @@
 		});
 		// The "Remove" button (remove the value from input type='hidden').
 		$('.mct_remove_file_button').on('click', function () {
-			const answer = confirm(moreconvertmctAdminParams.i18n_delete_file_confirm);
+			const answer = confirm(
+				moreconvertmctAdminParams.i18n_delete_file_confirm
+			);
 			if (answer === true) {
 				$(this).parent().find('input').val('');
 				$(this)
@@ -971,7 +999,9 @@
 			$.ajax({
 				url: moreconvertmctAdminParams.ajax_url,
 				data: {
-					action: moreconvertmctAdminParams.plugin_id + '_import_settings',
+					action:
+						moreconvertmctAdminParams.plugin_id +
+						'_import_settings',
 					key: moreconvertmctAdminParams.ajax_nonce,
 					attachment_id: elem.parent().find('input').val(),
 					option_id: elem.closest('.upload-file').data('option_id'),
@@ -1006,7 +1036,9 @@
 			$.ajax({
 				url: moreconvertmctAdminParams.ajax_url,
 				data: {
-					action: moreconvertmctAdminParams.plugin_id + '_export_settings',
+					action:
+						moreconvertmctAdminParams.plugin_id +
+						'_export_settings',
 					key: moreconvertmctAdminParams.ajax_nonce,
 					option_id: elem.data('option_id'),
 				},
