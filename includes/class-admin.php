@@ -166,85 +166,200 @@ if ( ! class_exists( 'Admin' ) ) {
 											'section' => 'compare',
 											'label'   => __( 'Button Single style', 'moreconvert-compare-for-woocommerce' ),
 											'type'    => 'group-fields',
+                                            'custom_attributes' => array(
+                                              'style' => 'max-width:600px;'
+                                            ),
+                                            'class'        => 'mct-force-responsive-table',
 											'fields'  => array(
-												'button_single_border' => array(
-													'label' => __( 'Border Css', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'text',
+												'button_border_type_single' => array(
+													'type'    => 'select',
+													'label'   => __( 'Border type', 'moreconvert-compare-for-woocommerce' ),
 													'default' => 'none',
-													'custom_attributes' => array(
-														'style' => 'width:100px',
+													'options' => array(
+														'none'   => __( 'None', 'moreconvert-compare-for-woocommerce' ),
+														'solid'  => __( 'Solid', 'moreconvert-compare-for-woocommerce' ),
+														'double' => __( 'Double', 'moreconvert-compare-for-woocommerce' ),
+														'dotted' => __( 'Dotted', 'moreconvert-compare-for-woocommerce' ),
+														'dashed' => __( 'Dashed', 'moreconvert-compare-for-woocommerce' ),
 													),
 												),
-												'button_icon_size_single'   => array(
+												'button_border_width_single' => array(
+													'type'  => 'dimensions',
+													'label' => __( 'Border size', 'moreconvert-compare-for-woocommerce' ),
+													'units' => array( 'px', 'em', 'rem' ),
+                                                    'default' => array(
+	                                                    'top'       => '1',
+	                                                    'right'     => '1',
+	                                                    'bottom'    => '1',
+	                                                    'left'      => '1',
+	                                                    'unit'      => 'px',
+	                                                    'is_linked' => '1',
+                                                    ),
+													'dependencies' => array(
+														'id'    => 'button_border_type_single',
+														'value' => 'solid,double,dotted,dashed',
+													),
+												),
+												'button_border_color_single' => array(
+													'type'    => 'color',
+													'label'   => __( 'Border color', 'moreconvert-compare-for-woocommerce' ),
+													'default' => '',
+													'dependencies' => array(
+														'id'    => 'button_border_type_single',
+														'value' => 'solid,double,dotted,dashed',
+													),
+												),
+												'button_border_radius_single' => array(
+													'type'  => 'dimensions',
+													'label' => __( 'Border radius', 'moreconvert-compare-for-woocommerce' ),
+													'units' => array( 'px', '%', 'em' ),
+													'default' => array(
+														'top'       => '4',
+														'right'     => '4',
+														'bottom'    => '4',
+														'left'      => '4',
+														'unit'      => 'px',
+														'is_linked' => '1',
+													),
+												),
+												'button_icon_size_single' => array(
+													'type'  => 'slider-unit',
 													'label' => __( 'Icon size', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'text',
-													'default' => '20px',
-													'custom_attributes' => array(
-														'style' => 'width:80px',
-													),
+													'min'   => '0',
+													'max'   => '100',
+													'step'  => '1',
+													'units' => array( 'px', 'em', 'rem' ),
+													'default' => array(
+                                                            'size' => '24',
+                                                            'unit' => 'px',
+													)
 												),
-												'button_font_size_single'   => array(
+												'button_font_size_single' => array(
+													'type'  => 'slider-unit',
 													'label' => __( 'Font size', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'text',
-													'default' => 'inherit',
-													'custom_attributes' => array(
-														'style' => 'width:80px',
-													),
+													'min'   => '0',
+													'max'   => '100',
+													'step'  => '1',
+													'units' => array( 'px', 'em', 'rem' ),
+													'default' => array(
+														'size' => '12',
+														'unit' => 'px',
+													)
 												),
-												'button_color_single'       => array(
-													'label' => __( 'Color', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'color',
+												'button_color_single' => array(
+													'type'    => 'color',
+													'label'   => __( 'Text color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#515151',
 												),
-												'button_background_color_single'       => array(
-													'label' => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'color',
+												'button_bg_color_single' => array(
+													'type'    => 'color',
+													'label'   => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#e9e6ed',
 												),
 											),
-											'desc'    => __( 'e.g. 10px, 15rem, 13em etc.', 'moreconvert-compare-for-woocommerce' ),
 										),
 										'button_loop_style' => array(
 											'section' => 'compare',
 											'label'   => __( 'Button Loop style', 'moreconvert-compare-for-woocommerce' ),
 											'type'    => 'group-fields',
+											'custom_attributes' => array(
+												'style' => 'max-width:600px;'
+											),
+											'class'        => 'mct-force-responsive-table',
 											'fields'  => array(
-												'button_loop_border' => array(
-													'label' => __( 'Border Css', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'text',
+												'button_border_type_loop' => array(
+													'type'    => 'select',
+													'label'   => __( 'Border type', 'moreconvert-compare-for-woocommerce' ),
 													'default' => 'none',
-													'custom_attributes' => array(
-														'style' => 'width:100px',
+													'options' => array(
+														'none'   => __( 'None', 'moreconvert-compare-for-woocommerce' ),
+														'solid'  => __( 'Solid', 'moreconvert-compare-for-woocommerce' ),
+														'double' => __( 'Double', 'moreconvert-compare-for-woocommerce' ),
+														'dotted' => __( 'Dotted', 'moreconvert-compare-for-woocommerce' ),
+														'dashed' => __( 'Dashed', 'moreconvert-compare-for-woocommerce' ),
 													),
 												),
-												'button_icon_size_loop'   => array(
+
+												'button_border_width_loop' => array(
+													'type'  => 'dimensions',
+													'label' => __( 'Border size', 'moreconvert-compare-for-woocommerce' ),
+													'units' => array( 'px', 'em', 'rem' ),
+													'dependencies' => array(
+														'id'    => 'button_border_type_loop',
+														'value' => 'solid,double,dotted,dashed',
+													),
+                                                    'default' => array(
+	                                                    'top'       => '1',
+	                                                    'right'     => '1',
+	                                                    'bottom'    => '1',
+	                                                    'left'      => '1',
+	                                                    'unit'      => 'px',
+	                                                    'is_linked' => '1',
+                                                    )
+												),
+
+												'button_border_color_loop' => array(
+													'type'    => 'color',
+													'label'   => __( 'Border color', 'moreconvert-compare-for-woocommerce' ),
+													'default' => '',
+													'dependencies' => array(
+														'id'    => 'button_border_type_loop',
+														'value' => 'solid,double,dotted,dashed',
+													),
+												),
+
+												'button_border_radius_loop' => array(
+													'type'  => 'dimensions',
+													'label' => __( 'Border radius', 'moreconvert-compare-for-woocommerce' ),
+													'units' => array( 'px', '%', 'em' ),
+													'default' => array(
+														'top'       => '4',
+														'right'     => '4',
+														'bottom'    => '4',
+														'left'      => '4',
+														'unit'      => 'px',
+														'is_linked' => '1',
+													)
+												),
+
+												'button_icon_size_loop' => array(
+													'type'  => 'slider-unit',
 													'label' => __( 'Icon size', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'text',
-													'default' => '20px',
-													'custom_attributes' => array(
-														'style' => 'width:80px',
-													),
+													'min'   => '0',
+													'max'   => '100',
+													'step'  => '1',
+													'units' => array( 'px', 'em', 'rem' ),
+													'default' => array(
+														'size' => '24',
+														'unit' => 'px',
+													)
 												),
-												'button_font_size_loop'   => array(
+
+												'button_font_size_loop' => array(
+													'type'  => 'slider-unit',
 													'label' => __( 'Font size', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'text',
-													'default' => 'inherit',
-													'custom_attributes' => array(
-														'style' => 'width:80px',
-													),
+													'min'   => '0',
+													'max'   => '100',
+													'step'  => '1',
+													'units' => array( 'px', 'em', 'rem' ),
+													'default' => array(
+														'size' => '12',
+														'unit' => 'px',
+													)
 												),
-												'button_color_loop'       => array(
-													'label' => __( 'Color', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'color',
+
+												'button_color_loop' => array(
+													'type'    => 'color',
+													'label'   => __( 'Text color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#515151',
 												),
-												'button_background_color_loop'       => array(
-													'label' => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
-													'type' => 'color',
+
+												'button_bg_color_loop' => array(
+													'type'    => 'color',
+													'label'   => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#e9e6ed',
 												),
 											),
-											'desc'    => __( 'e.g. 10px, 15rem, 13em etc.', 'moreconvert-compare-for-woocommerce' ),
 										),
 
 										'end-article-button-settings' => array(
