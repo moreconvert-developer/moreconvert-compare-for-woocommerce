@@ -23,14 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$val = is_array( $value ) ? $value : array(
+$val   = is_array( $value ) ? $value : array(
 	'horizontal' => 0,
 	'vertical'   => 0,
 	'blur'       => 0,
 	'spread'     => 0,
+	'unit'       => 'px',
 	'color'      => 'rgba(0,0,0,0.1)',
 	'position'   => 'outline',
 );
+$units = $field['units'] ?? array( 'px', 'em', 'rem' );
 ?>
 
 <div class="mct-box-shadow-container <?php echo esc_attr( $class ); ?>" id="<?php echo esc_attr( $field_id ); ?>_wrapper" <?php echo wp_kses_post( $dependencies ); ?>>
@@ -167,6 +169,13 @@ $val = is_array( $value ) ? $value : array(
 				<option value="inset" <?php selected( $val['position'] ?? 'outline', 'inset' ); ?>><?php esc_html_e( 'Inset', 'moreconvert-compare-for-woocommerce' ); ?></option>
 			</select>
 		</div>
-
+		<div class="d-flex space-between f-center">
+			<label ><?php esc_html_e( 'Unit', 'moreconvert-compare-for-woocommerce' ); ?></label>
+			<select name="<?php echo esc_attr( $name . '[unit]' ); ?>">
+				<?php foreach ( $units as $unit ) : ?>
+					<option value="<?php echo esc_attr( $unit ); ?>" <?php selected( $val['unit'] ?? 'px', $unit ); ?>><?php echo esc_html( $unit ); ?></option>
+				<?php endforeach; ?>
+			</select>
+		</div>
 	</div>
 </div>

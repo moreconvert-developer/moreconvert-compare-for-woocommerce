@@ -2417,7 +2417,17 @@ body.mct-modal-enabled {
 
             }
         }
+		.mct-force-responsive-table {
+			table.mct-responsive-table td {
+				&:before {
+					float: right!important;
+				}
+			}
+			table.mct-responsive-table td {
+				text-align: left !important;
 
+			}
+		}
 		@media screen and (max-width: 768px){
 			table.mct-responsive-table td {
 				text-align: left !important;

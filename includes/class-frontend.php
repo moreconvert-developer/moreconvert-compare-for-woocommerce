@@ -749,6 +749,21 @@ if ( ! class_exists( 'Frontend' ) ) {
 							$new_value              = $is_linked ? $top : "{$top} {$right} {$bottom} {$left}";
 							$new_rules[ $status ][] = $this->build_css_rule( $rule['rules']['rule'], $new_value, $rule['rules']['default'] );
 						}
+					} elseif ( isset( $rule['type'] ) && 'box-shadow' === $rule['type'] ) {
+						if ( is_array( $values ) && ! empty( $values ) ) {
+							$unit       = isset( $values['unit'] ) ? $values['unit'] : 'px';
+							$position   = isset( $values['position'] ) && 'inset' === $values['position'] ? 'inset' : '';
+							$color      = ( isset( $values['color'] ) && '' !== $values['color'] ) ? $values['color'] : '';
+							$horizontal = ( isset( $values['horizontal'] ) && '' !== $values['horizontal'] ) ? $values['horizontal'] . $unit : '';
+							$vertical   = ( isset( $values['vertical'] ) && '' !== $values['vertical'] ) ? $values['vertical'] . $unit : '';
+							$blur       = ( isset( $values['blur'] ) && '' !== $values['blur'] ) ? $values['blur'] . $unit : '';
+							$spread     = ( isset( $values['spread'] ) && '' !== $values['spread'] ) ? $values['spread'] . $unit : '';
+							$status     = $rule['rules']['status'] ?? '';
+
+							$new_rules[ $status ]   = array();
+							$new_value              = "{$position} {$horizontal} {$vertical} {$blur} {$spread} {$color}";
+							$new_rules[ $status ][] = $this->build_css_rule( $rule['rules']['rule'], $new_value, $rule['rules']['default'] );
+						}
 					} elseif ( isset( $rule['type'] ) && 'slider-unit' === $rule['type'] ) {
 						if ( is_array( $values ) && ! empty( $values ) ) {
 							$unit   = isset( $values['unit'] ) ? $values['unit'] : '';
