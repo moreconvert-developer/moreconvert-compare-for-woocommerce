@@ -132,7 +132,7 @@ if ( ! class_exists( 'Admin' ) ) {
 											'title' => __( 'Display Settings', 'moreconvert-compare-for-woocommerce' ),
 											'desc'  => __( 'You only need to set them once after installing the plugin.', 'moreconvert-compare-for-woocommerce' ),
 										),
-										'compare_enable'   => array(
+										'compare_enable'  => array(
 											'label'   => __( 'Enable Compare', 'moreconvert-compare-for-woocommerce' ),
 											'type'    => 'switch',
 											'default' => '1',
@@ -145,7 +145,7 @@ if ( ! class_exists( 'Admin' ) ) {
 											'title' => __( 'Advanced settings', 'moreconvert-compare-for-woocommerce' ),
 											'desc'  => __( 'These settings are not necessary and you can use them if you want.', 'moreconvert-compare-for-woocommerce' ),
 										),
-										'remove_all_data'  => array(
+										'remove_all_data' => array(
 											'label' => __( 'Remove all data', 'moreconvert-compare-for-woocommerce' ),
 											'desc'  => __( 'Uncheck , if you want to prevent data loss when deleting the plugin', 'moreconvert-compare-for-woocommerce' ),
 											'type'  => 'checkbox',
@@ -166,14 +166,14 @@ if ( ! class_exists( 'Admin' ) ) {
 											'section' => 'compare',
 											'label'   => __( 'Button Single style', 'moreconvert-compare-for-woocommerce' ),
 											'type'    => 'group-fields',
-                                            'custom_attributes' => array(
-                                              'style' => 'max-width:600px;'
-                                            ),
-                                            'class'        => 'mct-force-responsive-table',
+											'custom_attributes' => array(
+												'style' => 'max-width:600px;',
+											),
+											'class'   => 'mct-force-responsive-table',
 											'fields'  => array(
 												'button_border_type_single' => array(
-													'type'    => 'select',
-													'label'   => __( 'Border type', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'select',
+													'label' => __( 'Border type', 'moreconvert-compare-for-woocommerce' ),
 													'default' => 'none',
 													'options' => array(
 														'none'   => __( 'None', 'moreconvert-compare-for-woocommerce' ),
@@ -184,25 +184,25 @@ if ( ! class_exists( 'Admin' ) ) {
 													),
 												),
 												'button_border_width_single' => array(
-													'type'  => 'dimensions',
+													'type' => 'dimensions',
 													'label' => __( 'Border size', 'moreconvert-compare-for-woocommerce' ),
 													'units' => array( 'px', 'em', 'rem' ),
-                                                    'default' => array(
-	                                                    'top'       => '1',
-	                                                    'right'     => '1',
-	                                                    'bottom'    => '1',
-	                                                    'left'      => '1',
-	                                                    'unit'      => 'px',
-	                                                    'is_linked' => '1',
-                                                    ),
+													'default' => array(
+														'top'       => '1',
+														'right'     => '1',
+														'bottom'    => '1',
+														'left'      => '1',
+														'unit'      => 'px',
+														'is_linked' => '1',
+													),
 													'dependencies' => array(
 														'id'    => 'button_border_type_single',
 														'value' => 'solid,double,dotted,dashed',
 													),
 												),
 												'button_border_color_single' => array(
-													'type'    => 'color',
-													'label'   => __( 'Border color', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'color',
+													'label' => __( 'Border color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '',
 													'dependencies' => array(
 														'id'    => 'button_border_type_single',
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Admin' ) ) {
 													),
 												),
 												'button_border_radius_single' => array(
-													'type'  => 'dimensions',
+													'type' => 'dimensions',
 													'label' => __( 'Border radius', 'moreconvert-compare-for-woocommerce' ),
 													'units' => array( 'px', '%', 'em' ),
 													'default' => array(
@@ -223,37 +223,37 @@ if ( ! class_exists( 'Admin' ) ) {
 													),
 												),
 												'button_icon_size_single' => array(
-													'type'  => 'slider-unit',
+													'type' => 'slider-unit',
 													'label' => __( 'Icon size', 'moreconvert-compare-for-woocommerce' ),
-													'min'   => '0',
-													'max'   => '100',
-													'step'  => '1',
+													'min'  => '0',
+													'max'  => '100',
+													'step' => '1',
 													'units' => array( 'px', 'em', 'rem' ),
 													'default' => array(
-                                                            'size' => '24',
-                                                            'unit' => 'px',
-													)
+														'size' => '24',
+														'unit' => 'px',
+													),
 												),
 												'button_font_size_single' => array(
-													'type'  => 'slider-unit',
+													'type' => 'slider-unit',
 													'label' => __( 'Font size', 'moreconvert-compare-for-woocommerce' ),
-													'min'   => '0',
-													'max'   => '100',
-													'step'  => '1',
+													'min'  => '0',
+													'max'  => '100',
+													'step' => '1',
 													'units' => array( 'px', 'em', 'rem' ),
 													'default' => array(
 														'size' => '12',
 														'unit' => 'px',
-													)
+													),
 												),
 												'button_color_single' => array(
-													'type'    => 'color',
-													'label'   => __( 'Text color', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'color',
+													'label' => __( 'Text color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#515151',
 												),
 												'button_bg_color_single' => array(
-													'type'    => 'color',
-													'label'   => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'color',
+													'label' => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#e9e6ed',
 												),
 											),
@@ -263,13 +263,13 @@ if ( ! class_exists( 'Admin' ) ) {
 											'label'   => __( 'Button Loop style', 'moreconvert-compare-for-woocommerce' ),
 											'type'    => 'group-fields',
 											'custom_attributes' => array(
-												'style' => 'max-width:600px;'
+												'style' => 'max-width:600px;',
 											),
-											'class'        => 'mct-force-responsive-table',
+											'class'   => 'mct-force-responsive-table',
 											'fields'  => array(
 												'button_border_type_loop' => array(
-													'type'    => 'select',
-													'label'   => __( 'Border type', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'select',
+													'label' => __( 'Border type', 'moreconvert-compare-for-woocommerce' ),
 													'default' => 'none',
 													'options' => array(
 														'none'   => __( 'None', 'moreconvert-compare-for-woocommerce' ),
@@ -281,26 +281,26 @@ if ( ! class_exists( 'Admin' ) ) {
 												),
 
 												'button_border_width_loop' => array(
-													'type'  => 'dimensions',
+													'type' => 'dimensions',
 													'label' => __( 'Border size', 'moreconvert-compare-for-woocommerce' ),
 													'units' => array( 'px', 'em', 'rem' ),
 													'dependencies' => array(
 														'id'    => 'button_border_type_loop',
 														'value' => 'solid,double,dotted,dashed',
 													),
-                                                    'default' => array(
-	                                                    'top'       => '1',
-	                                                    'right'     => '1',
-	                                                    'bottom'    => '1',
-	                                                    'left'      => '1',
-	                                                    'unit'      => 'px',
-	                                                    'is_linked' => '1',
-                                                    )
+													'default' => array(
+														'top'       => '1',
+														'right'     => '1',
+														'bottom'    => '1',
+														'left'      => '1',
+														'unit'      => 'px',
+														'is_linked' => '1',
+													),
 												),
 
 												'button_border_color_loop' => array(
-													'type'    => 'color',
-													'label'   => __( 'Border color', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'color',
+													'label' => __( 'Border color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '',
 													'dependencies' => array(
 														'id'    => 'button_border_type_loop',
@@ -309,7 +309,7 @@ if ( ! class_exists( 'Admin' ) ) {
 												),
 
 												'button_border_radius_loop' => array(
-													'type'  => 'dimensions',
+													'type' => 'dimensions',
 													'label' => __( 'Border radius', 'moreconvert-compare-for-woocommerce' ),
 													'units' => array( 'px', '%', 'em' ),
 													'default' => array(
@@ -319,44 +319,44 @@ if ( ! class_exists( 'Admin' ) ) {
 														'left'      => '4',
 														'unit'      => 'px',
 														'is_linked' => '1',
-													)
+													),
 												),
 
 												'button_icon_size_loop' => array(
-													'type'  => 'slider-unit',
+													'type' => 'slider-unit',
 													'label' => __( 'Icon size', 'moreconvert-compare-for-woocommerce' ),
-													'min'   => '0',
-													'max'   => '100',
-													'step'  => '1',
+													'min'  => '0',
+													'max'  => '100',
+													'step' => '1',
 													'units' => array( 'px', 'em', 'rem' ),
 													'default' => array(
 														'size' => '24',
 														'unit' => 'px',
-													)
+													),
 												),
 
 												'button_font_size_loop' => array(
-													'type'  => 'slider-unit',
+													'type' => 'slider-unit',
 													'label' => __( 'Font size', 'moreconvert-compare-for-woocommerce' ),
-													'min'   => '0',
-													'max'   => '100',
-													'step'  => '1',
+													'min'  => '0',
+													'max'  => '100',
+													'step' => '1',
 													'units' => array( 'px', 'em', 'rem' ),
 													'default' => array(
 														'size' => '12',
 														'unit' => 'px',
-													)
+													),
 												),
 
 												'button_color_loop' => array(
-													'type'    => 'color',
-													'label'   => __( 'Text color', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'color',
+													'label' => __( 'Text color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#515151',
 												),
 
 												'button_bg_color_loop' => array(
-													'type'    => 'color',
-													'label'   => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
+													'type' => 'color',
+													'label' => __( 'Background color', 'moreconvert-compare-for-woocommerce' ),
 													'default' => '#e9e6ed',
 												),
 											),

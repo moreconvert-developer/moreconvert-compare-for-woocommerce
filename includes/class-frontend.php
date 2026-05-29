@@ -580,17 +580,17 @@ if ( ! class_exists( 'Frontend' ) ) {
 		public function build_custom_css() {
 			$generated_code = '';
 
-			$rules          = apply_filters(
+			$rules = apply_filters(
 				'moreconvert_compare_css_rules',
 				array(
-					'button_border_type_single'            => array(
+					'button_border_type_single'   => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position',
 						'rules'    => array(
 							'rule'    => 'border-style: %s !important',
 							'default' => $this->options->get_option( 'button_border_type_single', '#515151' ),
 						),
 					),
-					'button_border_width_single'            => array(
+					'button_border_width_single'  => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position',
 						'rules'    => array(
 							'rule'    => 'border-width: %s !important',
@@ -598,14 +598,14 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'dimensions',
 					),
-					'button_border_color_single'            => array(
+					'button_border_color_single'  => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position',
 						'rules'    => array(
 							'rule'    => 'border-color: %s !important',
 							'default' => $this->options->get_option( 'button_border_color_single', '#515151' ),
 						),
 					),
-					'button_border_radius_single'            => array(
+					'button_border_radius_single' => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position',
 						'rules'    => array(
 							'rule'    => 'border-radius: %s !important',
@@ -613,7 +613,7 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'dimensions',
 					),
-					'button_icon_size_single'        => array(
+					'button_icon_size_single'     => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position .moreconvert-compare-svg',
 						'rules'    => array(
 							'rule'    => 'width: %1$s !important;height: %1$s !important',
@@ -621,7 +621,7 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'slider-unit',
 					),
-					'button_font_size_single'        => array(
+					'button_font_size_single'     => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position',
 						'rules'    => array(
 							'rule'    => 'font-size: %s !important',
@@ -629,14 +629,14 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'slider-unit',
 					),
-					'button_color_single'            => array(
+					'button_color_single'         => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position',
 						'rules'    => array(
 							'rule'    => 'color: %s !important',
 							'default' => $this->options->get_option( 'button_color_single', '#515151' ),
 						),
 					),
-					'button_bg_color_single' => array(
+					'button_bg_color_single'      => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-single-position',
 						'rules'    => array(
 							'rule'    => 'background-color: %s !important',
@@ -644,14 +644,14 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 					),
 
-					'button_border_type_loop'            => array(
+					'button_border_type_loop'     => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position',
 						'rules'    => array(
 							'rule'    => 'border-style: %s !important',
 							'default' => $this->options->get_option( 'button_border_type_loop', '#515151' ),
 						),
 					),
-					'button_border_width_loop'            => array(
+					'button_border_width_loop'    => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position',
 						'rules'    => array(
 							'rule'    => 'border-width: %s !important',
@@ -659,14 +659,14 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'dimensions',
 					),
-					'button_border_color_loop'            => array(
+					'button_border_color_loop'    => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position',
 						'rules'    => array(
 							'rule'    => 'border-color: %s !important',
 							'default' => $this->options->get_option( 'button_border_color_loop', '#515151' ),
 						),
 					),
-					'button_border_radius_loop'            => array(
+					'button_border_radius_loop'   => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position',
 						'rules'    => array(
 							'rule'    => 'border-radius: %s !important',
@@ -674,7 +674,7 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'dimensions',
 					),
-					'button_icon_size_loop'          => array(
+					'button_icon_size_loop'       => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position .moreconvert-compare-svg',
 						'rules'    => array(
 							'rule'    => 'width: %1$s !important;height: %1$s !important',
@@ -682,7 +682,7 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'slider-unit',
 					),
-					'button_font_size_loop'          => array(
+					'button_font_size_loop'       => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position',
 						'rules'    => array(
 							'rule'    => 'font-size: %s !important',
@@ -690,14 +690,14 @@ if ( ! class_exists( 'Frontend' ) ) {
 						),
 						'type'     => 'slider-unit',
 					),
-					'button_color_loop'              => array(
+					'button_color_loop'           => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position',
 						'rules'    => array(
 							'rule'    => 'color: %s !important',
 							'default' => $this->options->get_option( 'button_color_loop', '#515151' ),
 						),
 					),
-					'button_bg_color_loop'   => array(
+					'button_bg_color_loop'        => array(
 						'selector' => '.moreconvert-compare-button.moreconvert-compare-loop-position',
 						'rules'    => array(
 							'rule'    => 'background-color: %s !important',
@@ -737,22 +737,22 @@ if ( ! class_exists( 'Frontend' ) ) {
 						}
 					} elseif ( isset( $rule['type'] ) && 'dimensions' === $rule['type'] ) {
 						if ( is_array( $values ) && ! empty( $values ) ) {
-							$unit   = isset( $values['unit'] ) ? $values['unit'] : '';
-							$top    = ( isset( $values['top'] ) && '' !== $values['top'] ) ? $values['top'] . $unit : '0';
-							$right  = ( isset( $values['right'] ) && '' !== $values['right'] ) ? $values['right'] . $unit : '0';
-							$bottom = ( isset( $values['bottom'] ) && '' !== $values['bottom'] ) ? $values['bottom'] . $unit : '0';
-							$left   = ( isset( $values['left'] ) && '' !== $values['left'] ) ? $values['left'] . $unit : '0';
-							$is_linked =  ( isset( $values['is_linked'] ) && wp_validate_boolean( $values['is_linked'] ) ) ;
-							$status = $rule['rules']['status'] ?? '';
+							$unit      = isset( $values['unit'] ) ? $values['unit'] : '';
+							$top       = ( isset( $values['top'] ) && '' !== $values['top'] ) ? $values['top'] . $unit : '0';
+							$right     = ( isset( $values['right'] ) && '' !== $values['right'] ) ? $values['right'] . $unit : '0';
+							$bottom    = ( isset( $values['bottom'] ) && '' !== $values['bottom'] ) ? $values['bottom'] . $unit : '0';
+							$left      = ( isset( $values['left'] ) && '' !== $values['left'] ) ? $values['left'] . $unit : '0';
+							$is_linked = ( isset( $values['is_linked'] ) && wp_validate_boolean( $values['is_linked'] ) );
+							$status    = $rule['rules']['status'] ?? '';
 
 							$new_rules[ $status ]   = array();
-							$new_value =  $is_linked ? $top : "{$top} {$right} {$bottom} {$left}";
+							$new_value              = $is_linked ? $top : "{$top} {$right} {$bottom} {$left}";
 							$new_rules[ $status ][] = $this->build_css_rule( $rule['rules']['rule'], $new_value, $rule['rules']['default'] );
 						}
 					} elseif ( isset( $rule['type'] ) && 'slider-unit' === $rule['type'] ) {
 						if ( is_array( $values ) && ! empty( $values ) ) {
 							$unit   = isset( $values['unit'] ) ? $values['unit'] : '';
-							$size    = ( isset( $values['size'] ) && '' !== $values['size'] ) ? $values['size'] . $unit : '0';
+							$size   = ( isset( $values['size'] ) && '' !== $values['size'] ) ? $values['size'] . $unit : '0';
 							$status = $rule['rules']['status'] ?? '';
 
 							$new_rules[ $status ]   = array();
