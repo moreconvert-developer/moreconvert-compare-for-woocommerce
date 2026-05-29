@@ -36,7 +36,8 @@ $header_hide = $header_hide ?? false;
 ?>
 
 <div id="<?php echo esc_attr( $field_id ); ?>" class="mct-group-fields <?php echo esc_attr( $class ); ?>"
-	<?php echo wp_kses_post( $dependencies ); ?>>
+	<?php echo wp_kses_post( $dependencies ); ?>
+	<?php echo wp_kses_post( $custom_attributes ); ?>>
 	<table class="<?php echo $header_hide ? '' : 'mct-border-table'; ?> mct-responsive-table">
 		<?php if ( ! $header_hide ) : ?>
 		<thead>

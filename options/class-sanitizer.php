@@ -49,14 +49,20 @@ class Sanitizer {
 
 			case 'color':
 				// Ensure valid hex/rgba? We'll just sanitize text.
-				return sanitize_text_field( $value );
+				return self::sanitize_css_color( $value );
 
 			case 'checkbox':
 			case 'switch':
 				return (int) (bool) $value;
 
-			case 'checkbox-group':
 			case 'color-style':
+				if ( ! is_array( $value ) ) {
+					return array();
+				}
+				return array_map( function( $color ) {
+					return self::sanitize_css_color( $color );
+				}, $value );
+			case 'checkbox-group':
 			case 'multi-select':
 				if ( ! is_array( $value ) ) {
 					return array();
@@ -98,7 +104,34 @@ class Sanitizer {
 					return array_map( 'sanitize_title', $value );
 				}
 				return array_map( 'absint', $value );
+			case 'dimensions':
+				if ( ! is_array( $value ) ) return array();
+				return array(
+					'top'       => isset($value['top']) ? sanitize_text_field($value['top']) : '',
+					'right'     => isset($value['right']) ? sanitize_text_field($value['right']) : '',
+					'bottom'    => isset($value['bottom']) ? sanitize_text_field($value['bottom']) : '',
+					'left'      => isset($value['left']) ? sanitize_text_field($value['left']) : '',
+					'unit'      => isset($value['unit']) && in_array($value['unit'], array('px', 'em', 'rem', '%', 'vh', 'vw')) ? $value['unit'] : 'px',
+					'is_linked' => isset($value['is_linked']) && $value['is_linked'] === '1' ? '1' : '0'
+				);
 
+			case 'slider-unit':
+				if ( ! is_array( $value ) ) return array();
+				return array(
+					'size' => isset($value['size']) ? sanitize_text_field($value['size']) : '',
+					'unit' => isset($value['unit']) && in_array($value['unit'], array('px', 'em', 'rem', '%', 'vh', 'vw')) ? $value['unit'] : '',
+				);
+
+			case 'box-shadow':
+				if ( ! is_array( $value ) ) return array();
+				return array(
+					'horizontal' => isset($value['horizontal']) ? intval($value['horizontal']) : 0,
+					'vertical'   => isset($value['vertical']) ? intval($value['vertical']) : 0,
+					'blur'       => isset($value['blur']) ? absint($value['blur']) : 0,
+					'spread'     => isset($value['spread']) ? intval($value['spread']) : 0,
+					'color'      => isset($value['color']) ? sanitize_text_field($value['color']) : '#00000033',
+					'position'   => isset($value['position']) && $value['position'] === 'inset' ? 'inset' : 'outline',
+				);
 			default:
 				// Fallback.
 				return sanitize_text_field( $value );
@@ -281,5 +314,72 @@ class Sanitizer {
 		}
 
 		return $sanitized_items;
+	}
+
+	/**
+	 * Sanitize all CSS color formats (HEX, RGB, RGBA, HSL, HSLA, Keywords)
+	 *
+	 * @param string $value The raw color input.
+	 * @return string Sanitized color or empty string if invalid.
+	 */
+	public static function sanitize_css_color( $value ) {
+		$value = trim( (string) $value );
+
+		if ( empty( $value ) ) {
+			return '';
+		}
+
+		// 1. Validate HEX colors (#fff, #ffffff, #ffffffff)
+		if ( preg_match( '/^#([A-Fa-f0-9]{3,4}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$/', $value ) ) {
+			return $value;
+		}
+
+		// 2. Validate RGB and RGBA formats
+		// Supports rgb(255,255,255), rgba(0,0,0,0.5), and modern space-separated syntax rgb(255 255 255 / 50%)
+		if ( preg_match( '/^rgba?\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*(?:,\s*(?:[01]\.?\d*|\.\d+|\d+%))?\s*\)$/i', $value ) ||
+		     preg_match( '/^rgba?\(\s*\d+%?\s+\d+%?\s+\d+%?(?:\s*\/\s*(?:[01]\.?\d*|\.\d+|\d+%))?\s*\)$/i', $value ) ) {
+			return esc_attr( $value );
+		}
+
+		// 3. Validate HSL and HSLA formats
+		// Supports hsl(120, 100%, 50%), hsla(120, 100%, 50%, 0.3) and modern syntax
+		if ( preg_match( '/^hsla?\(\s*\d+(?:deg|rad|grad|turn)?\s*,\s*\d+%\s*,\s*\d+%\s*(?:,\s*(?:[01]\.?\d*|\.\d+|\d+%))?\s*\)$/i', $value ) ||
+		     preg_match( '/^hsla?\(\s*\d+(?:deg|rad|grad|turn)?\s+\d+%\s+\d+%(?:\s*\/\s*(?:[01]\.?\d*|\.\d+|\d+%))?\s*\)$/i', $value ) ) {
+			return esc_attr( $value );
+		}
+
+		// 4. Validate Standard CSS Color Keywords & Global values
+		$valid_keywords = array(
+			'transparent', 'inherit', 'initial', 'unset', 'currentcolor',
+			'black', 'silver', 'gray', 'white', 'maroon', 'red', 'purple', 'fuchsia',
+			'green', 'lime', 'olive', 'yellow', 'navy', 'blue', 'teal', 'aqua', 'orange',
+			'aliceblue', 'antiquewhite', 'aquamarine', 'azure', 'beige', 'bisque', 'blanchedalmond',
+			'blueviolet', 'brown', 'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'coral',
+			'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan', 'darkgoldenrod',
+			'darkgray', 'darkgreen', 'darkgrey', 'darkkhaki', 'darkmagenta', 'darkolivegreen',
+			'darkorange', 'darkorchid', 'darkred', 'darksalmon', 'darkseagreen', 'darkslateblue',
+			'darkslategray', 'darkslategrey', 'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue',
+			'dimgray', 'dimgrey', 'dodgerblue', 'firebrick', 'floralwhite', 'forestgreen', 'gainsboro',
+			'ghostwhite', 'gold', 'goldenrod', 'greenyellow', 'grey', 'honeydew', 'hotpink', 'indianred',
+			'indigo', 'ivory', 'khaki', 'lavender', 'lavenderblush', 'lawngreen', 'lemonchiffon',
+			'lightblue', 'lightcoral', 'lightcyan', 'lightgoldenrodyellow', 'lightgray', 'lightgreen',
+			'lightgrey', 'lightpink', 'lightsalmon', 'lightseagreen', 'lightskyblue', 'lightslategray',
+			'lightslategrey', 'lightsteelblue', 'lightyellow', 'mediumaquamarine', 'mediumblue',
+			'mediumorchid', 'mediumpurple', 'mediumseagreen', 'mediumslateblue', 'mediumspringgreen',
+			'mediumturquoise', 'mediumvioletred', 'midnightblue', 'mintcream', 'mistyrose', 'moccasin',
+			'navajowhite', 'oldlace', 'olivedrab', 'orangered', 'orchid', 'palegoldenrod', 'palegreen',
+			'paleturquoise', 'palevioletred', 'papayawhip', 'peachpuff', 'peru', 'pink', 'plum',
+			'powderblue', 'rosybrown', 'royalblue', 'saddlebrown', 'salmon', 'sandybrown', 'seagreen',
+			'seashell', 'sienna', 'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow', 'springgreen',
+			'steelblue', 'tan', 'thistle', 'tomato', 'turquoise', 'violet', 'wheat', 'whitesmoke',
+			'yellowgreen'
+		);
+
+		if ( in_array( strtolower( $value ), $valid_keywords, true ) ) {
+			return strtolower( $value );
+		}
+
+		// Fallback for security: return empty string if it doesn't match any safe CSS color pattern
+		return '';
 	}
 }

@@ -308,6 +308,47 @@
 			}
 		);
 
+		$(document).on('click', '.mct-dimension-link-btn', function(e) {
+			e.preventDefault();
+			var $btn = $(this);
+			var $hiddenInput = $btn.siblings('.mct-dimension-linked-status');
+			var $container = $btn.closest('.mct-dimensions-fields-wrapper');
+
+			if ($btn.hasClass('is-linked')) {
+				$btn.removeClass('is-linked');
+				$btn.find('.dashicons').removeClass('dashicons-admin-links').addClass('dashicons-editor-unlink');
+				$hiddenInput.val('0');
+			} else {
+				$btn.addClass('is-linked');
+				$btn.find('.dashicons').removeClass('dashicons-editor-unlink').addClass('dashicons-admin-links');
+				$hiddenInput.val('1');
+
+				var topValue = $container.find('.mct-dimension-top').val();
+				$container.find('.mct-dimension-field').val(topValue);
+			}
+		});
+
+		$(document).on('input', '.mct-dimension-field', function() {
+			var $currentInput = $(this);
+			var $container = $currentInput.closest('.mct-dimensions-fields-wrapper');
+			var isLinked = $container.find('.mct-dimension-linked-status').val() === '1';
+
+			if (isLinked) {
+				var val = $currentInput.val();
+				$container.find('.mct-dimension-field').val(val);
+			}
+		});
+
+		$(document).on('input', '.mct-slider-range-control', function() {
+			var $range = $(this);
+			$range.closest('.mct-slider-unit-fields').find('.mct-slider-numeric-input').val($range.val());
+		});
+
+		$(document).on('input', '.mct-slider-numeric-input', function() {
+			var $num = $(this);
+			$num.closest('.mct-slider-unit-fields').find('.mct-slider-range-control').val($num.val());
+		});
+
 		function initWizard() {
 			$('body').on(
 				'click',
