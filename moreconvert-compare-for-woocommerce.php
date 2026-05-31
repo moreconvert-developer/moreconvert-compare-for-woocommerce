@@ -13,7 +13,7 @@
  * Requires PHP: 8.0
  * Requires Plugins: woocommerce
  * WC requires at least: 6.3
- * WC tested up to: 10.7.0
+ * WC tested up to: 10.8.1
  *
  * @author MoreConvert
  * @package MoreConvert Compare for WooCommerce

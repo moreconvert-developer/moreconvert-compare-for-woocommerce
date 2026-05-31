@@ -3,10 +3,10 @@ Contributors: moreconvert
 Donate link: https://moreconvert.com/donations/moreconvert-compare-for-woocommerce/
 Tags: woocommerce, compare, product compare, woocommerce compare, product comparison
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 8.0
 WC requires at least: 6.3
-WC tested up to: 10.7.0
+WC tested up to: 10.8.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

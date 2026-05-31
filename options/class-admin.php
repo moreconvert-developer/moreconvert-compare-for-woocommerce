@@ -283,6 +283,11 @@ if ( ! class_exists( 'Admin' ) ) {
 		 */
 		public function save_option() {
 			if ( isset( $_POST['mct-action'] ) ) {
+
+				if ( ! current_user_can( 'manage_options' ) ) {
+					wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'moreconvert-compare-for-woocommerce' ) );
+				}
+
 				if ( isset( $this->options['options'] ) && is_array( $this->options['options'] ) ) {
 
 					$options       = Helpers::get_main_key_options( $this->options['options'] );
@@ -337,6 +342,11 @@ if ( ! class_exists( 'Admin' ) ) {
 				}
 			}
 			if ( isset( $_POST['mct-action-wizard'] ) ) {
+
+				if ( ! current_user_can( 'manage_options' ) ) {
+					wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'moreconvert-compare-for-woocommerce' ) );
+				}
+
 				if ( $_POST['mct-action-wizard'] === $this->options['id'] && isset( $_POST[ 'mct-' . $this->options['id'] . '-wizard-nonce' ] ) && wp_verify_nonce( sanitize_key( wp_unslash( $_POST[ 'mct-' . $this->options['id'] . '-wizard-nonce' ] ) ), 'mct-' . $this->options['id'] . '-wizard' ) ) {
 
 					$saved_options  = $this->get_options();
@@ -395,6 +405,11 @@ if ( ! class_exists( 'Admin' ) ) {
 		public function reset_option() {
 
 			if ( isset( $_POST['mct-reset'] ) ) {
+
+				if ( ! current_user_can( 'manage_options' ) ) {
+					wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'moreconvert-compare-for-woocommerce' ) );
+				}
+
 				if ( isset( $this->options['options'] ) && is_array( $this->options['options'] ) ) {
 
 					$can_reset     = false;

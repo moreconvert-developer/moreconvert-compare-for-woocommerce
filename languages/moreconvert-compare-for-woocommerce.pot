@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-29T18:08:03+00:00\n"
+"POT-Creation-Date: 2026-05-31T17:50:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: moreconvert-compare-for-woocommerce\n"
 
 #. Plugin Name of the plugin
@@ -578,16 +578,19 @@ msgstr ""
 msgid "Last 365 days"
 msgstr ""
 
-#: options/class-admin.php:345
-#: options/class-ajax-handler.php:176
-msgid "Invalid JSON structure"
-msgstr ""
-
+#: options/class-admin.php:288
+#: options/class-admin.php:347
+#: options/class-admin.php:410
 #: options/class-ajax-handler.php:56
 #: options/class-ajax-handler.php:117
 #: options/class-ajax-handler.php:160
 #: options/class-ajax-handler.php:214
 msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: options/class-admin.php:355
+#: options/class-ajax-handler.php:176
+msgid "Invalid JSON structure"
 msgstr ""
 
 #: options/class-ajax-handler.php:74
