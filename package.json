@@ -57,8 +57,5 @@
 		"sass": "^1.99.0",
 		"vinyl-fs": "^4.0.2",
 		"yargs": "^17.5.1"
-	},
-	"dependencies": {
-		"gulp-wp-pot": "^2.5.0"
 	}
 }
