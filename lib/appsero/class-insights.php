@@ -1,9 +1,9 @@
 <?php
 /**
- * Compare Appsero Insight
+ * Appsero Insight
  *
  * @author MoreConvert
- * @package MoreConvert Compare for WooCommerce
+ * @package MoreConvert Appsero
  * @version 1.0.0
  */
 

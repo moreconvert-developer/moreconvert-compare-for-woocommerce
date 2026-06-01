@@ -3,7 +3,7 @@
  * Static class that will handle all ajax calls for the list
  *
  * @author MoreConvert
- * @package MC Messages
+ * @package MoreConvert Options plugin
  * @version 1.3.3
  */
 

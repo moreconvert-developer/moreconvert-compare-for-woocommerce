@@ -64,7 +64,7 @@ $is_linked = ( isset( $val['is_linked'] ) && '1' === (string) $val['is_linked'] 
 		<?php endforeach; ?>
 
 		<div class="mct-dimension-link-action">
-			<button type="button" class="mct-dimension-link-btn button d-inline-flex <?php echo $is_linked ? 'is-linked' : ''; ?>" >
+			<button type="button" class="mct-dimension-link-btn button f-center d-inline-flex <?php echo $is_linked ? 'is-linked' : ''; ?>" >
 				<span class="dashicons dashicons-<?php echo $is_linked ? 'admin-links' : 'editor-unlink'; ?>"></span>
 			</button>
 			<input

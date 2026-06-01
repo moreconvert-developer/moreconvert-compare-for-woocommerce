@@ -7,6 +7,7 @@
 .travis.yml
 .github/
 .idea/
+.snapshots/
 node_modules/
 src/
 packaged/

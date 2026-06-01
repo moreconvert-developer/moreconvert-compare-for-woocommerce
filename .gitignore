@@ -4,6 +4,7 @@
 /assets/
 /options/assets/
 /.idea
+/.snapshots
 package-lock.json
 /options/package-lock.json
 *~

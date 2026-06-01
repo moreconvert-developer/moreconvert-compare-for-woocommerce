@@ -65,7 +65,7 @@ export const styles = () => {
 }
 
 export const copy = () => {
-	return gulp.src( paths.other.src )
+	return gulp.src( paths.other.src, { encoding: false } )
 		.pipe( gulp.dest( paths.other.dest ) );
 }
 

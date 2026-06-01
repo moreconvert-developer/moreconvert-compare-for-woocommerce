@@ -59,7 +59,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php endforeach; ?>
 					<td data-title="<?php esc_attr_e( 'Action', 'moreconvert-compare-for-woocommerce' ); ?>">
 						<div class="margin-bet">
-							<?php if ( ! $field['disable_add_button'] ) : ?>
+							<?php if ( ! isset( $field['disable_add_button'] ) || false === $field['disable_add_button'] ) : ?>
 								<a class="btn-secondary small-btn min-pad add-new-row inline" href="#">
 									<?php echo wp_kses_post( $field['add_button'] ?? '<span class="dashicons dashicons-plus"></span>' ); ?>
 								</a>
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endforeach; ?>
 				<td data-title="<?php esc_attr_e( 'Action', 'moreconvert-compare-for-woocommerce' ); ?>">
 					<div class="margin-bet">
-						<?php if ( ! $field['disable_add_button'] ) : ?>
+						<?php if ( ! isset( $field['disable_add_button'] ) || false === $field['disable_add_button'] ) : ?>
 							<a class="btn-secondary small-btn min-pad  inline add-new-row" href="#">
 								<?php echo wp_kses_post( $field['add_button'] ?? '<span class="dashicons dashicons-plus"></span>' ); ?>
 							</a>
