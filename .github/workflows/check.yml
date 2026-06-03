@@ -18,26 +18,27 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          tools: composer, cs2pr, phpcs, phpcbf
+          tools: composer, cs2pr #, phpcs, phpcbf
           coverage: none
 
-      - name: Enable composer plugins
-        run: composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+      #- name: Enable composer plugins
+      #  run: composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 
-      - name: Install WPCS & PHPCompatibility & dependencies
-        run: |
-          composer global require --no-interaction --prefer-dist wp-coding-standards/wpcs
-          composer global require --no-interaction phpcompatibility/phpcompatibility-wp
-          composer global require squizlabs/php_codesniffer
-          composer global require dealerdirect/phpcodesniffer-composer-installer
-          echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
+      #- name: Install WPCS & PHPCompatibility & dependencies
+      #  run: |
+      #    composer global require --no-interaction --prefer-dist wp-coding-standards/wpcs
+      #    composer global require --no-interaction phpcompatibility/phpcompatibility-wp
+      #    composer global require squizlabs/php_codesniffer
+      #    composer global require dealerdirect/phpcodesniffer-composer-installer
+      #    echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
 
       - name: Verify standards
-        run: phpcs -i
+        run: vendor/bin/phpcs -i
 
       - name: Run PHPCBF
-        run: |
-          phpcbf .
+        run: vendor/bin/phpcbf .
         continue-on-error: true
 
       - name: Show PHPCBF changes
@@ -53,8 +54,7 @@ jobs:
           fi
 
       - name: Run PHPCS
-        run: |
-          phpcs .
+        run: vendor/bin/phpcs .
         continue-on-error: false
 
   eslint:

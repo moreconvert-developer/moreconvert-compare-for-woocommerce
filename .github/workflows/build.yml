@@ -23,6 +23,9 @@ jobs:
           php-version: '8.2'
           tools: wp-cli
 
+      - name: Install PHP dependencies
+        run: composer install --no-dev --optimize-autoloader
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -67,4 +70,4 @@ jobs:
           SLUG: moreconvert-compare-for-woocommerce
           BUILD_DIR: ./
           ASSETS_DIR: .wordpress-org
-          VERSION: ${{ github.ref_name }}
+          #VERSION: ${{ github.ref_name }}
