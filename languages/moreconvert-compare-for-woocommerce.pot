@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-05-31T17:50:27+00:00\n"
+"POT-Creation-Date: 2026-06-03T20:16:23+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: moreconvert-compare-for-woocommerce\n"
@@ -43,9 +43,9 @@ msgstr ""
 #: includes/class-admin.php:107
 #: includes/class-admin.php:739
 #: includes/class-admin.php:740
-#: options/fields/add-button.php:40
-#: options/fields/add-button.php:70
-#: options/fields/add-button.php:123
+#: options/fields/add-button.php:39
+#: options/fields/add-button.php:69
+#: options/fields/add-button.php:122
 msgid "Text"
 msgstr ""
 
@@ -140,9 +140,9 @@ msgstr ""
 
 #: includes/class-admin.php:214
 #: includes/class-admin.php:313
-#: options/fields/add-button.php:46
-#: options/fields/add-button.php:100
-#: options/fields/add-button.php:153
+#: options/fields/add-button.php:45
+#: options/fields/add-button.php:99
+#: options/fields/add-button.php:152
 msgid "Border radius"
 msgstr ""
 
@@ -158,11 +158,11 @@ msgstr ""
 
 #: includes/class-admin.php:251
 #: includes/class-admin.php:353
-#: options/fields/add-button.php:43
-#: options/fields/add-button.php:94
-#: options/fields/add-button.php:147
-#: options/fields/color-style.php:35
-#: options/fields/color-style.php:50
+#: options/fields/add-button.php:42
+#: options/fields/add-button.php:93
+#: options/fields/add-button.php:146
+#: options/fields/color-style.php:34
+#: options/fields/color-style.php:49
 msgid "Text color"
 msgstr ""
 
@@ -504,7 +504,7 @@ msgid "Not a variable product"
 msgstr ""
 
 #: includes/class-ajax-handler.php:148
-#: options/class-admin.php:219
+#: options/class-admin.php:215
 msgid "Clear"
 msgstr ""
 
@@ -537,352 +537,352 @@ msgstr ""
 msgid "Compare"
 msgstr ""
 
-#: options/class-admin.php:210
-#: options/class-admin.php:211
+#: options/class-admin.php:206
+#: options/class-admin.php:207
 msgid "Are you sure?"
 msgstr ""
 
-#: options/class-admin.php:212
+#: options/class-admin.php:208
 msgid "You can not add more items."
 msgstr ""
 
-#: options/class-admin.php:213
+#: options/class-admin.php:209
 msgid "Are you sure you want to delete this element?"
 msgstr ""
 
-#: options/class-admin.php:214
+#: options/class-admin.php:210
 msgid "Are you sure you want to reset all the settings of this section?"
 msgstr ""
 
-#: options/class-admin.php:218
+#: options/class-admin.php:214
 msgid "Apply"
 msgstr ""
 
-#: options/class-admin.php:220
+#: options/class-admin.php:216
 msgid "Custom"
 msgstr ""
 
-#: options/class-admin.php:221
+#: options/class-admin.php:217
 msgid "Last 7 days"
 msgstr ""
 
-#: options/class-admin.php:222
+#: options/class-admin.php:218
 msgid "Last 30 days"
 msgstr ""
 
-#: options/class-admin.php:223
+#: options/class-admin.php:219
 msgid "Last 90 days"
 msgstr ""
 
-#: options/class-admin.php:224
+#: options/class-admin.php:220
 msgid "Last 365 days"
 msgstr ""
 
-#: options/class-admin.php:288
-#: options/class-admin.php:347
-#: options/class-admin.php:410
-#: options/class-ajax-handler.php:56
-#: options/class-ajax-handler.php:117
-#: options/class-ajax-handler.php:160
-#: options/class-ajax-handler.php:214
+#: options/class-admin.php:279
+#: options/class-admin.php:338
+#: options/class-admin.php:399
+#: options/class-ajax-handler.php:55
+#: options/class-ajax-handler.php:116
+#: options/class-ajax-handler.php:159
+#: options/class-ajax-handler.php:213
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: options/class-admin.php:355
-#: options/class-ajax-handler.php:176
+#: options/class-admin.php:346
+#: options/class-ajax-handler.php:175
 msgid "Invalid JSON structure"
 msgstr ""
 
-#: options/class-ajax-handler.php:74
+#: options/class-ajax-handler.php:73
 msgid "Invalid JSON content"
 msgstr ""
 
-#: options/class-ajax-handler.php:78
+#: options/class-ajax-handler.php:77
 msgid "Wrong JSON content"
 msgstr ""
 
-#: options/class-ajax-handler.php:84
+#: options/class-ajax-handler.php:83
 msgid "Configuration not found for this option ID."
 msgstr ""
 
-#: options/class-ajax-handler.php:106
+#: options/class-ajax-handler.php:105
 msgid "Successfully Imported."
 msgstr ""
 
-#: options/class-ajax-handler.php:144
+#: options/class-ajax-handler.php:143
 msgid "Successfully Exported."
 msgstr ""
 
-#: options/class-ajax-handler.php:164
+#: options/class-ajax-handler.php:163
 msgid "No data was received."
 msgstr ""
 
-#: options/class-ajax-handler.php:171
+#: options/class-ajax-handler.php:170
 msgid "Missing option ID."
 msgstr ""
 
-#: options/class-ajax-handler.php:182
+#: options/class-ajax-handler.php:181
 msgid "Configuration not found."
 msgstr ""
 
-#: options/class-ajax-handler.php:210
+#: options/class-ajax-handler.php:209
 msgid "Settings Saved!"
 msgstr ""
 
-#: options/class-ajax-handler.php:210
+#: options/class-ajax-handler.php:209
 msgid "Don't forget to clear your website and browser cache to see the changes."
 msgstr ""
 
-#: options/class-ajax-handler.php:217
+#: options/class-ajax-handler.php:216
 msgid "Failed validate form."
 msgstr ""
 
-#: options/class-fields.php:347
+#: options/class-fields.php:344
 msgid "Manage Settings"
 msgstr ""
 
-#: options/class-fields.php:359
-#: options/fields/manage.php:116
+#: options/class-fields.php:356
+#: options/fields/manage.php:114
 msgid "Manage"
 msgstr ""
 
-#: options/class-fields.php:390
+#: options/class-fields.php:387
 msgid "Back"
 msgstr ""
 
-#: options/class-fields.php:394
-#: options/class-fields.php:505
+#: options/class-fields.php:391
+#: options/class-fields.php:502
 msgid "Save Settings"
 msgstr ""
 
-#: options/class-fields.php:398
-#: options/class-fields.php:509
+#: options/class-fields.php:395
+#: options/class-fields.php:506
 msgid "Reset Settings"
 msgstr ""
 
-#: options/class-fields.php:661
+#: options/class-fields.php:658
 msgid "Lets Go"
 msgstr ""
 
-#: options/class-fields.php:664
+#: options/class-fields.php:661
 msgid "NO, Not Ready Now"
 msgstr ""
 
-#: options/class-fields.php:670
+#: options/class-fields.php:667
 msgid "Back to the previous step"
 msgstr ""
 
-#: options/class-fields.php:671
+#: options/class-fields.php:668
 msgid "Continue"
 msgstr ""
 
-#: options/class-fields.php:679
+#: options/class-fields.php:676
 msgid "Back to WordPress Dashboard"
 msgstr ""
 
-#: options/class-fields.php:841
-#: options/fields/start.php:53
+#: options/class-fields.php:838
+#: options/fields/start.php:51
 msgid "Section Guide"
 msgstr ""
 
-#: options/class-fields.php:1432
+#: options/class-fields.php:1424
 msgid "Settings saved."
 msgstr ""
 
-#: options/class-fields.php:1433
+#: options/class-fields.php:1425
 msgid "Settings reset."
 msgstr ""
 
-#: options/class-fields.php:1434
+#: options/class-fields.php:1426
 msgid "Some fields not validate."
 msgstr ""
 
-#: options/class-fields.php:1435
+#: options/class-fields.php:1427
 msgid "You cannot access to save changes."
 msgstr ""
 
-#: options/fields/add-button.php:39
-#: options/fields/add-button.php:67
-#: options/fields/add-button.php:120
-#: options/fields/importance.php:35
-#: options/fields/importance.php:48
-#: options/fields/importance.php:62
-#: options/fields/inner-repeater.php:60
-#: options/fields/inner-repeater.php:93
-#: options/fields/manage.php:114
-#: options/fields/repeater.php:63
-#: options/fields/repeater.php:75
-#: options/fields/repeater.php:88
+#: options/fields/add-button.php:38
+#: options/fields/add-button.php:66
+#: options/fields/add-button.php:119
+#: options/fields/importance.php:34
+#: options/fields/importance.php:47
+#: options/fields/importance.php:61
+#: options/fields/inner-repeater.php:59
+#: options/fields/inner-repeater.php:92
+#: options/fields/manage.php:112
+#: options/fields/repeater.php:62
+#: options/fields/repeater.php:74
+#: options/fields/repeater.php:87
 msgid "Action"
 msgstr ""
 
-#: options/fields/add-button.php:41
-#: options/fields/add-button.php:88
-#: options/fields/add-button.php:141
-#: options/fields/color-style.php:39
-#: options/fields/color-style.php:57
+#: options/fields/add-button.php:40
+#: options/fields/add-button.php:87
+#: options/fields/add-button.php:140
+#: options/fields/color-style.php:38
+#: options/fields/color-style.php:56
 msgid "Background"
 msgstr ""
 
-#: options/fields/add-button.php:42
-#: options/fields/add-button.php:91
-#: options/fields/add-button.php:144
-#: options/fields/color-style.php:40
+#: options/fields/add-button.php:41
+#: options/fields/add-button.php:90
+#: options/fields/add-button.php:143
+#: options/fields/color-style.php:39
 msgid "Background hover"
 msgstr ""
 
-#: options/fields/add-button.php:44
-#: options/fields/add-button.php:97
-#: options/fields/add-button.php:150
-#: options/fields/color-style.php:36
-#: options/fields/color-style.php:53
+#: options/fields/add-button.php:43
+#: options/fields/add-button.php:96
+#: options/fields/add-button.php:149
+#: options/fields/color-style.php:35
+#: options/fields/color-style.php:52
 msgid "Text hover color"
 msgstr ""
 
-#: options/fields/add-button.php:59
-#: options/fields/add-button.php:103
-#: options/fields/add-button.php:156
+#: options/fields/add-button.php:58
+#: options/fields/add-button.php:102
+#: options/fields/add-button.php:155
 msgid "Button link"
 msgstr ""
 
-#: options/fields/add-button.php:112
-#: options/fields/add-button.php:162
+#: options/fields/add-button.php:111
+#: options/fields/add-button.php:161
 msgid "Url"
 msgstr ""
 
-#: options/fields/add-button.php:171
+#: options/fields/add-button.php:170
 msgid "Add new button"
 msgstr ""
 
-#: options/fields/box-shadow.php:41
+#: options/fields/box-shadow.php:40
 msgid "Color"
 msgstr ""
 
-#: options/fields/box-shadow.php:45
+#: options/fields/box-shadow.php:44
 msgid "Horizontal"
 msgstr ""
 
-#: options/fields/box-shadow.php:75
+#: options/fields/box-shadow.php:74
 msgid "Vertical"
 msgstr ""
 
-#: options/fields/box-shadow.php:105
+#: options/fields/box-shadow.php:104
 msgid "Blur"
 msgstr ""
 
-#: options/fields/box-shadow.php:135
+#: options/fields/box-shadow.php:134
 msgid "Spread"
 msgstr ""
 
-#: options/fields/box-shadow.php:166
+#: options/fields/box-shadow.php:165
 msgid "Position"
 msgstr ""
 
-#: options/fields/box-shadow.php:168
+#: options/fields/box-shadow.php:167
 msgid "Outline"
 msgstr ""
 
-#: options/fields/box-shadow.php:169
+#: options/fields/box-shadow.php:168
 msgid "Inset"
 msgstr ""
 
-#: options/fields/box-shadow.php:173
+#: options/fields/box-shadow.php:172
 msgid "Unit"
 msgstr ""
 
-#: options/fields/color-style.php:43
-#: options/fields/color-style.php:65
+#: options/fields/color-style.php:42
+#: options/fields/color-style.php:64
 msgid "Border"
 msgstr ""
 
-#: options/fields/color-style.php:44
-#: options/fields/color-style.php:68
+#: options/fields/color-style.php:43
+#: options/fields/color-style.php:67
 msgid "Border hover"
 msgstr ""
 
-#: options/fields/color-style.php:60
+#: options/fields/color-style.php:59
 msgid "Background Hover"
 msgstr ""
 
-#: options/fields/copy-text.php:37
+#: options/fields/copy-text.php:36
 msgid "Copy"
 msgstr ""
 
-#: options/fields/dimensions.php:44
+#: options/fields/dimensions.php:43
 msgid "Top"
 msgstr ""
 
-#: options/fields/dimensions.php:45
+#: options/fields/dimensions.php:44
 msgid "Right"
 msgstr ""
 
-#: options/fields/dimensions.php:46
+#: options/fields/dimensions.php:45
 msgid "Bottom"
 msgstr ""
 
-#: options/fields/dimensions.php:47
+#: options/fields/dimensions.php:46
 msgid "Left"
 msgstr ""
 
-#: options/fields/import.php:36
-#: options/fields/select-file.php:37
+#: options/fields/import.php:35
+#: options/fields/select-file.php:36
 msgid "Select File"
 msgstr ""
 
-#: options/fields/import.php:37
+#: options/fields/import.php:36
 msgid "Import"
 msgstr ""
 
-#: options/fields/importance.php:33
-#: options/fields/importance.php:42
-#: options/fields/importance.php:56
+#: options/fields/importance.php:32
+#: options/fields/importance.php:41
+#: options/fields/importance.php:55
 msgid "Label"
 msgstr ""
 
-#: options/fields/importance.php:34
-#: options/fields/importance.php:45
-#: options/fields/importance.php:59
+#: options/fields/importance.php:33
+#: options/fields/importance.php:44
+#: options/fields/importance.php:58
 msgid "Slug"
 msgstr ""
 
-#: options/fields/importance.php:71
+#: options/fields/importance.php:70
 msgid "Add new"
 msgstr ""
 
-#: options/fields/manage.php:56
-#: options/fields/manage.php:87
+#: options/fields/manage.php:54
+#: options/fields/manage.php:85
 msgid "Row"
 msgstr ""
 
-#: options/fields/manage.php:139
+#: options/fields/manage.php:137
 msgid "Close"
 msgstr ""
 
-#: options/fields/page-select.php:43
+#: options/fields/page-select.php:42
 msgid "&mdash; Select a page  &mdash;"
 msgstr ""
 
-#: options/fields/search-post.php:39
+#: options/fields/search-post.php:38
 msgid "Search for a post&hellip;"
 msgstr ""
 
-#: options/fields/search-product-cat.php:32
+#: options/fields/search-product-cat.php:31
 msgid "Search Product Categories is enabled but not effective. It requires WooCommerce to work."
 msgstr ""
 
-#: options/fields/search-product.php:30
+#: options/fields/search-product.php:29
 msgid "Search Product is enabled but not effective. It requires WooCommerce to work."
 msgstr ""
 
-#: options/fields/search-product.php:41
-#: options/fields/search-product.php:45
+#: options/fields/search-product.php:40
+#: options/fields/search-product.php:44
 msgid "Search for a product&hellip;"
 msgstr ""
 
-#: options/fields/search-users.php:39
+#: options/fields/search-users.php:38
 msgid "Search for a user&hellip;"
 msgstr ""
 
-#: options/fields/upload-image.php:46
+#: options/fields/upload-image.php:45
 msgid "Add Image"
 msgstr ""
