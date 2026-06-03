@@ -3,7 +3,7 @@
  * Plugin Name: MoreConvert Compare for WooCommerce
  * Plugin URI: https://wordpress.org/plugins/moreconvert-compare-for-woocommerce
  * Description:A Powerful WooCommerce plugin for product comparison. Features customizable table, variable product support, GDPR compliance and optimized performance.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: MoreConvert
  * Author URI: https://moreconvert.com
  * License: GPL-2.0-or-later
@@ -17,15 +17,16 @@
  *
  * @author MoreConvert
  * @package MoreConvert Compare for WooCommerce
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 /**
  * Copyright 2025 MoreConvert Solutions (email: info@moreconvert.com)
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License, version 3, version 2 or later, as
- * published by the Free Software Foundation.
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * any later version.
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of

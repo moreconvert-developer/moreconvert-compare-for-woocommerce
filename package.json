@@ -14,7 +14,7 @@
 		"moreconvert"
 	],
 	"author": "MoreConvert",
-	"license": "GPL-3.0",
+	"license": "GPL-2.0-or-later",
 	"scripts": {
 		"dev": "gulp",
 		"build": "gulp build --prod",

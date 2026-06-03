@@ -4,7 +4,7 @@
  *
  * @author MoreConvert
  * @package MoreConvert Compare for WooCommerce
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 namespace MoreConvert\McCompare;
@@ -30,7 +30,7 @@ if ( ! class_exists( 'Load_Compare' ) ) {
 		 *
 		 * @var string
 		 */
-		public $version = '1.0.0';
+		public $version = '1.0.1';
 
 		/**
 		 * Plugin database version
