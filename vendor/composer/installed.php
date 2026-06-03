@@ -1,13 +1,13 @@
 <?php return array(
     'root' => array(
         'name' => 'moreconvert/moreconvert-compare-for-woocommerce',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '7f1ac36cd5f8c4f2af4b1f3518a9273a731a87fd',
+        'pretty_version' => 'dev-develop',
+        'version' => 'dev-develop',
+        'reference' => 'cb7a9e2dce19989c916a434ec40ef927c1ae6809',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => false,
+        'dev' => true,
     ),
     'versions' => array(
         'enshrined/svg-sanitize' => array(
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'moreconvert/moreconvert-compare-for-woocommerce' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '7f1ac36cd5f8c4f2af4b1f3518a9273a731a87fd',
+            'pretty_version' => 'dev-develop',
+            'version' => 'dev-develop',
+            'reference' => 'cb7a9e2dce19989c916a434ec40ef927c1ae6809',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
