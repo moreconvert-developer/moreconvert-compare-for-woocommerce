@@ -1,0 +1,81 @@
+name: PHPCS Check
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, main ]
+
+jobs:
+  phpcs:
+    name: Run PHPCS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          tools: composer, cs2pr, phpcs, phpcbf
+          coverage: none
+
+      - name: Enable composer plugins
+        run: composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
+      - name: Install WPCS & PHPCompatibility & dependencies
+        run: |
+          composer global require --no-interaction --prefer-dist squizlabs/php_codesniffer:^3.10 wp-coding-standards/wpcs:^3.1 phpcompatibility/phpcompatibility-wp:^2.1 dealerdirect/phpcodesniffer-composer-installer:^1.0 phpcsstandards/phpcsutils:^1.0
+          echo "$HOME/.composer/vendor/bin" >> $GITHUB_PATH
+      # composer global require --no-interaction --prefer-dist wp-coding-standards/wpcs
+      # composer global require --no-interaction phpcompatibility/phpcompatibility-wp
+      # composer global require squizlabs/php_codesniffer
+      # composer global require dealerdirect/phpcodesniffer-composer-installer
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Verify standards
+        run: phpcs -i
+
+      - name: Run PHPCBF
+        run: phpcbf .
+        continue-on-error: true
+
+      - name: Show PHPCBF changes
+        if: success() || failure()
+        run: |
+          if ! git diff --quiet; then
+            echo '### 🔧 PHPCBF Fixes Applied' >> $GITHUB_STEP_SUMMARY
+            echo '```diff' >> $GITHUB_STEP_SUMMARY
+            git diff >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          else
+            echo '✅ No changes by PHPCBF' >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Run PHPCS
+        run: phpcs .
+        continue-on-error: false
+
+  eslint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        env:
+          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint:js

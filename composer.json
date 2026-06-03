@@ -1,0 +1,23 @@
+{
+  "name": "moreconvert/moreconvert-compare-for-woocommerce",
+  "type": "wordpress-plugin",
+  "description": "A powerful WooCommerce product comparison plugin...",
+  "keywords": ["compare", "woocommerce", "products", "e-commerce", "moreconvert"],
+  "homepage": "https://moreconvert.com/product/moreconvert-compare-for-woocommerce/",
+  "license": "GPL-3.0",
+  "require": {
+    "enshrined/svg-sanitize": "^0.22.0"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    },
+    "platform": {
+      "php": "8.0"
+    }
+  },
+  "scripts": {
+    "phpcs": "phpcs",
+    "phpcbf": "phpcbf"
+  }
+}

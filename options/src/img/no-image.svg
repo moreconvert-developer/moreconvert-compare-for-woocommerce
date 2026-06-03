@@ -1,0 +1,24 @@
+<svg id="vuesax_linear_gallery" xmlns="http://www.w3.org/2000/svg" width="60"
+     height="60" viewBox="0 0 60 60">
+	<defs>
+		<clipPath id="clip-path">
+			<rect width="60" height="60" fill="none"/>
+		</clipPath>
+	</defs>
+	<g id="gallery" clip-path="url(#clip-path)">
+		<g id="gallery-2" >
+			<path id="Vector"
+				  d="M17.5,50h15C45,50,50,45,50,32.5v-15C50,5,45,0,32.5,0h-15C5,0,0,5,0,17.5v15C0,45,5,50,17.5,50Z"
+				  transform="translate(5 5)" fill="none" stroke="#ddd1c5" stroke-linecap="round" stroke-linejoin="round"
+				  stroke-width="3"/>
+			<path id="Vector-2"  d="M10,5A5,5,0,1,1,5,0,5,5,0,0,1,10,5Z"
+				  transform="translate(17.5 15)" fill="none" stroke="#ddd1c5" stroke-linecap="round"
+				  stroke-linejoin="round" stroke-width="3"/>
+			<path id="Vector-3"
+				  d="M0,17.381,12.325,9.106a5.633,5.633,0,0,1,6.6.35l.825.725a5.574,5.574,0,0,0,7.05,0L37.2,1.256a5.574,5.574,0,0,1,7.05,0l4.075,3.5"
+				  transform="translate(6.675 29.994)" fill="none" stroke="#ddd1c5" stroke-linecap="round"
+				  stroke-linejoin="round" stroke-width="3"/>
+			<path id="Vector-4"  d="M0,0H60V60H0Z" fill="none" opacity="0"/>
+		</g>
+	</g>
+</svg>
