@@ -135,7 +135,7 @@ function appsero_init_tracker() {
 		require_once MORECONVERT_COMPARE_DIR . 'lib/appsero/class-client.php';
 	}
 
-	$client = new Appsero\Client( '15538f29-1d1d-4aba-acf6-e3fd3c97a55b', 'MoreConvert Compare for WooCommerce Plugin', __FILE__ );
+	$client = new Appsero\Client( 'be99d912-888a-4c54-ab5b-0ad67d80765a', 'MoreConvert Compare for WooCommerce Plugin', __FILE__ );
 
 	// Active insights.
 	$client->insights()->add_plugin_data()->init();
