@@ -37,8 +37,12 @@ const paths      = {
 		src: 'src/fonts/**/*.{woff,woff2,ttf,otf}',
 		dest: 'assets/fonts/'
 	},
+	images: {
+		src: 'src/img/**/*.{jpg,jpeg,png,svg,gif,webp,ico}',
+		dest: 'assets/img/'
+	},
 	other: {
-		src: ['src/**/*', '!src/{fonts,scss,js}','!src/{fonts,scss,js}/**/*'],
+		src: ['src/**/*', '!src/{fonts,img,scss,js}','!src/{fonts,img,scss,js}/**/*'],
 		dest: 'assets/'
 	},
 }
@@ -65,13 +69,17 @@ export const styles = () => {
 }
 
 export const copy = () => {
-	return gulp.src( paths.other.src, { encoding: false } )
+	return gulp.src( paths.other.src )
 		.pipe( gulp.dest( paths.other.dest ) );
 }
 
 export const fonts = () => {
 	return gulp.src(paths.fonts.src, { encoding: false })
 		.pipe(gulp.dest(paths.fonts.dest));
+};
+export const images = () => {
+	return gulp.src(paths.images.src, { encoding: false })
+		.pipe(gulp.dest(paths.images.dest));
 };
 
 export const scripts = () => {
@@ -85,13 +93,4 @@ export const scripts = () => {
 		.pipe( gulp.dest( paths.scripts.dest ) )
 }
 
-export const watchChanges = () => {
-	gulp.watch( 'src/**/*.scss', styles );
-	gulp.watch( 'src/**/*.js', gulp.series( scripts ) );
-	gulp.watch( '**/*.php' );
-	gulp.watch( paths.other.src, gulp.series( copy ) );
-}
-
-export const dev   = series( clean, parallel( styles, fonts,copy, scripts ), watchChanges );
-export const build = series( clean, parallel( styles, fonts,copy, scripts ) );
-export default dev;
+export const build = series( clean, parallel( styles, copy, fonts,images, scripts ) );

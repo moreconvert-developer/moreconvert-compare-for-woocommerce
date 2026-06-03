@@ -34,7 +34,7 @@ const paths = {
 		dest: 'assets/',
 	},
 	images: {
-		src: ['src/**/*.{jpg,jpeg,png,svg,gif,webm}'],
+		src: ['src/**/*.{jpg,jpeg,png,svg,gif,webp}'],
 		dest: 'assets/',
 	},
 	scripts: {
@@ -48,9 +48,12 @@ const paths = {
 	package: {
 		src: [
 			'**/*',
+			'vendor/**/*',
+			'vendor/**/.*',
 			'!.vscode',
 			'!.idea',
 			'!.github',
+			'!.snapshots',
 			'!.wordpress-org',
 			'!node_modules{,/**}',
 			'!packaged{,/**}',
@@ -99,7 +102,7 @@ export const styles = () => {
 };
 
 export const images = () => {
-	return gulp.src(paths.images.src).pipe(gulp.dest(paths.images.dest));
+	return gulp.src(paths.images.src,{ encoding: false }).pipe(gulp.dest(paths.images.dest));
 };
 
 export const copy = () => {
@@ -120,7 +123,7 @@ export const scripts = () => {
 
 export const compress = () => {
 	return gulp
-		.src(paths.package.src)
+		.src(paths.package.src,{ encoding: false, nodir: true })
 		.pipe(zip(`${info.name}.zip`))
 		.pipe(gulp.dest(paths.package.dest));
 };
