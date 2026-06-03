@@ -10,7 +10,7 @@
   },
   "config": {
     "allow-plugins": {
-      "composer/installers": true,
+      "composer/installers": true
     },
     "platform": {
       "php": "8.0"
