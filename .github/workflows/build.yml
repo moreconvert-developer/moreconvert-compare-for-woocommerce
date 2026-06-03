@@ -23,8 +23,8 @@ jobs:
           php-version: '8.2'
           tools: wp-cli
 
-      - name: Install PHP dependencies
-        run: composer install --no-dev --optimize-autoloader
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader --prefer-dist --no-progress
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
